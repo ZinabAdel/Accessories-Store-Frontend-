@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
+import { KnowRingSizeComponent } from './know-ring-size/know-ring-size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    KnowRingSizeComponent
   ],
   imports: [
     BrowserModule,
