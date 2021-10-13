@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   isGold:boolean = false
   img:string[] = []
   constructor() {
-    this.img = ["p1.jpeg","p3.jpeg","p3.jpeg"]
+    this.img = ["m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg"]
    }
 
   ngOnInit(): void {
