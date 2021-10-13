@@ -1,7 +1,3 @@
-hr{
-    height: 3px;
-    width: 80%;
-}
 .myCard{
     width: 90%;
 }
@@ -9,9 +5,21 @@ hr{
     box-shadow: 1px 1px 3px 3px #ffc107;
 }
 .myDataOfAbout{
-    width: 90%;
+    background-color: rgb(241, 240, 240);
 }
 video{
     max-width: 100%;
     height: auto;
+}
+.myIntegramIcon{
+    color: 	#8a3ab9;
+    font-size: 30px;
+}
+.myfacebookIcon{
+    color: 	#4267B2;
+    font-size: 30px;
+}
+hr{
+    height: 3px;
+    width: 80%;
 }
