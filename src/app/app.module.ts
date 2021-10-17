@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './Component/home-page/home-page.component';
 import { NavBarComponent } from './Layout/nav-bar/nav-bar.component';
 import { FooterComponent } from './Layout/footer/footer.component';
-import { KnowRingSizeComponent } from './know-ring-size/know-ring-size.component';
+import { KnowRingSizeComponent } from './Component/know-ring-size/know-ring-size.component';
 import { RegisterComponent } from './User/register/register.component';
 import { LoginComponent } from './User/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     KnowRingSizeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
