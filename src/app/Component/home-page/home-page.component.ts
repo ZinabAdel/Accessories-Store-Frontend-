@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { CategoryService } from 'src/app/Services/category.service';
 import { SubCategoryService } from 'src/app/Services/sub-category.service';
 import { environment } from 'src/environments/environment';
 import { ICategory } from '../Shared_Interfces/ICategory';
 import { ISubCategory } from '../Shared_Interfces/ISubCategory';
+=======
+import { ProductService } from 'src/app/Services/product.service';
+import { environment } from 'src/environments/environment';
+import { IProduct } from '../Shared_Interfces/iproduct';
+>>>>>>> 187647f6627828182ab4e368801b3f04de070639
 
 @Component({
   selector: 'app-home-page',
@@ -12,9 +18,10 @@ import { ISubCategory } from '../Shared_Interfces/ISubCategory';
 })
 export class HomePageComponent implements OnInit {
 
-  isSilver:boolean = false;
-  isGold: boolean = false;
+  isSilver = false;
+  isGold = false;
   img: string[] = [];
+<<<<<<< HEAD
   Categoies: ICategory[] =[];
   subCategoies: ISubCategory[] =[];
   Error :string;
@@ -26,10 +33,24 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.getCatigoreis();
     this.getSubCatigoreis();
+=======
+  AllProduct: IProduct[] = [];
+  constructor(private prodServices: ProductService) {
+    this.img = ['m1.jpeg',"m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg"]
+   }
+
+  ngOnInit(): void {
+    this.getAllProduct();
+>>>>>>> 187647f6627828182ab4e368801b3f04de070639
   }
   public createImgPath = (serverPath: string) => {
-    console.log(`${environment.API_URL}/${serverPath}`)
-    return `${environment.API_URL}/${serverPath}`;
+    console.log(`${environment.API_URLIMG}/${serverPath}`);
+    return `${environment.API_URLIMG}/${serverPath}`;
+  }
+getAllProduct(): void{
+this.prodServices.getAllProduct().subscribe(sucess => {
+this.AllProduct = sucess;
+});
   }
   checkSilver(){
     this.isSilver = true
