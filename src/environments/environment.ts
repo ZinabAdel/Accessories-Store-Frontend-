@@ -4,12 +4,8 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  API_URL: 'http://localhost:9748/api'
-=======
   API_URL: 'http://localhost:9748/api',
-  API_URLIMG: 'http://localhost:9748'
->>>>>>> 187647f6627828182ab4e368801b3f04de070639
+  API_URLIMG: 'http://localhost:9748/Resources/Img'
 };
 
 /*
