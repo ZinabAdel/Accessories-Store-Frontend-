@@ -1,4 +1,4 @@
 export interface ISubCategory{
-  Id: number;
+  id: number;
   subCategoryName: string;
 }

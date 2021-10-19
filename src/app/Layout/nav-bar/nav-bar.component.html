@@ -1,13 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 pt-3" id="navbar-example2">
+<nav class="navbar navbar-expand-lg navbar-dark px-4 py-0 myNav" id="navbar-example2">
     <div class="container-fluid">
-      <a class="navbar-brand " routerLink="HomePage">
-        <img src="../../assets/قلاووف.jpg" alt="error" style="width:40px;" class="rounded-pill border border-warning"> قلاووف
+      <a class="navbar-brand d-flex" routerLink="HomePage">
+        <div><img src="../../../assets/webBackGround.png" alt="error" style="max-width:100%; height: auto" class="rounded-pill"></div>
+        <div><p class="text-light mt-4"> قلاووف </p></div>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <button type="button" id="navbarSupportedContent" class="btn mybtnRegister">تسجيل الدخول</button>
-        <button type="button" id="navbarSupportedContent" class="btn mybtnRegister" routerLink="/Product/ProductDetails"> منتجاتنا</button>
-
-    </div>
+      <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+        <div class="navbar-nav me-auto">
+          <a class="nav-link active" aria-current="page" href="#" routerLink="Register"><button type="button" class="btn mybtnRegister" >تسجيل الدخول</button></a>
+          <a class="nav-link" href="#"><button type="button" class="btn me-3 mybtnRegister" routerLink="/Product/ProductDetails"> منتجاتنا</button></a>
+        </div>
+      </div>
+  </div>
 </nav>

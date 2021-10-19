@@ -12,6 +12,7 @@ import { RegisterComponent } from './User/register/register.component';
 import { LoginComponent } from './User/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
+import { AddProductComponent } from './Admin/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponent } from './Component/page-not-found/page-not-found
     KnowRingSizeComponent,
     RegisterComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <form style="width: 70%;" class="mx-auto">
+        <p class="h3 mt-5 fs-2 text-center">أضف منتج جديد</p>
+        <div class="mb-4 mx-auto">
+            <label class="form-label fw-bold mt-5">صورة المنتج</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="mb-4 mx-auto">
+            <label class="form-label fw-bold">السعر</label>
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <div class="input-group-append">
+                  <span class="input-group-text">ج</span>
+                </div>
+              </div>
+        </div>
+        <div class="mb-4 mx-auto">
+            <label class="form-label fw-bold">الصنف</label>
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option *ngFor="let cat of Categoies">{{cat.categoryName}}</option>
+                </select>
+                <!-- <label for="floatingSelect">النوع</label> -->
+            </div>
+        </div>
+        <div class="mb-4 mx-auto">
+            <label class="form-label fw-bold">النوع</label>
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option *ngFor="let subCat of subCategoies">{{subCat.subCategoryName}}</option>
+                </select>
+                <!-- <label for="floatingSelect">اختار المنتج</label> -->
+            </div>
+        </div>
+        <button type="submit" class="btn mb-5 px-5 py-2 myBtn">حفظ</button>
+      </form>
+</div>

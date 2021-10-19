@@ -11,10 +11,10 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  getCategories(): Observable<ICategory>
+  getCategories(): Observable<ICategory[]>
   {
     console.log('in');
-    return this.http.get<ICategory>(`${environment.API_URL}/Category`).pipe();
+    return this.http.get<ICategory[]>(`${environment.API_URL}/Category`).pipe();
   }
 
 
