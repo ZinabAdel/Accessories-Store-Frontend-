@@ -10,24 +10,23 @@ import { LoginComponent } from './User/login/login.component';
 import { RegisterComponent } from './User/register/register.component';
 
 const routes: Routes = [
-  {path: 'Register', component: RegisterComponent},
-  {path: 'Login', component: LoginComponent},
+  {path: 'Register', component: RegisterComponent, data: { footer: true, header: true }},
+  {path: 'Login', component: LoginComponent, data: { footer: true, header: true }},
   {path: 'ChooseCategory', component: ChooseCategoryComponent},
-  {path: 'HomePage', component: HomePageComponent},
+  {path: 'HomePage', component: HomePageComponent, data: { footer: true, header: true }},
 // , children:
 //   [{
 //     path: 'ProductDetails/:id' , component: ProductDetailsComponent
 //   }
 // ]},
-  {path: 'RingSize', component: KnowRingSizeComponent},
-  {path: 'AddProduct', component: AddProductComponent},
-
-  {path: 'Product' ,
+   {path: 'RingSize', component: KnowRingSizeComponent, data: { footer: true, header: true }},
+   {path: 'AddProduct', component: AddProductComponent},
+   {path: '', redirectTo: '/HomePage', pathMatch: 'full'},
+   {path: 'Product' , data: { footer: true, header: true },
    loadChildren: () => import('./Component/Products/product-module/product-module.module')
-   .then(product => product.ProductModuleModule)},
-   {path: '', redirectTo: '/HomePage', pathMatch: 'full'
-  },
-  {path: '**', component: PageNotFoundComponent},
+   .then(product => product.ProductModuleModule)
+   },   
+   {path: '**', component: PageNotFoundComponent},
 
 ];
 
