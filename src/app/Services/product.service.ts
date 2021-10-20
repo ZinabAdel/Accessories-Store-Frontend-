@@ -18,6 +18,13 @@ export class ProductService {
   getProductById(prodId: number): Observable<IProduct>{
     return this.http.get<IProduct>(`${environment.API_URL}/Product/${prodId}`).pipe();
   }
+  getProductsBySubCategory(subCategoryId: number): Observable<IProduct>{
+    return this.http.get<IProduct>(`${environment.API_URL}/Product/ProductBySubCategory/${subCategoryId}`).pipe();
+  }
+  getProductsByCategory(CategoryId: number): Observable<IProduct>{
+    return this.http.get<IProduct>(`${environment.API_URL}/Product/ProductByCategory/${CategoryId}`).pipe();
+  }
+  
   AddNewProduct(product: IProduct): Observable<IProduct[]>{
     return this.http.get<IProduct[]>(`${environment.API_URL}/Product/{product}`).pipe();
   }
@@ -28,5 +35,6 @@ export class ProductService {
   removeProduct(id: number): Observable<IProduct[]>{
     return this.http.get<IProduct[]>(`${environment.API_URL}/Product/{id}`).pipe();
   }
+
 
 }

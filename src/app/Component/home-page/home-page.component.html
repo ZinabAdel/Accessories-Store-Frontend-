@@ -27,30 +27,32 @@
 
 <!-- ---------------------------------------------------------------------------------------- -->
 
-<div class="container-fluid pt-5 ">
+<!-- <div class="container-fluid pt-5 ">
     <div style="text-align: center;" class="mb-3">
         <button type="button" class="btn" style="background-color: #9c627d; color: white;">جميع الانواع</button>
         <div *ngFor="let cat of Categoies" class="" style="display: inline-flex;">
             <button type="button" class="btn me-4 myBtnCat">{{cat.categoryName}}</button>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- ---------------------------------------------------------------------------------------- -->
 
-  <div class="container-fluid" id="product">
-      <div class="d-flex flex-wrap pb-4 justify-content-center">
+  <div class="container-fluid pt-5" id="product">
+      <!-- <div class="d-flex flex-wrap pb-4 justify-content-center">
         <div *ngFor="let subCat of subCategoies" class="my-3 ">
           <button (click)="filterProduct(subCat.id)" class="link-dark d-lg-block mb-lg-3 me-4 px-5 py-3 btn btn-outline-warning myLink">{{subCat.subCategoryName}}</button>
         </div>
-      </div>
-      <div *ngIf="showSizeRing">
+      </div> -->
+      <!-- <div *ngIf="showSizeRing">
         <div class="text-center mb-4">
           <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
         </div>
-      </div>
+      </div> -->
+     
+      <p class="h2 text-center mb-5">جميع المنتجات</p>
       <div class="d-flex mx-auto flex-wrap justify-content-center">
-          <div *ngFor="let product of spasificProduct" >
+          <div *ngFor="let product of AllProduct" >
               <div class="card shadow-lg me-4 mb-3 myCardProduct" style="width: 16rem; min-height: auto; height: 400px;">
               <div class="align-center" style="max-height: 65%; height: 65%;">
                 <img [src]="createImgPath(product.productImage)" class="card-img-top p-3 my-auto" alt="error">
