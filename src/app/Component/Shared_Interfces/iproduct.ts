@@ -3,6 +3,7 @@ export interface IProduct {
    productName: string;
    productImage: string;
    categoryID: number;
+   subCategoryID: number;
    priceSilver: string;
    priceGold: string;
 }

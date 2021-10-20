@@ -20,8 +20,9 @@ export class HomePageComponent implements OnInit {
   Categoies: ICategory[] =[];
   subCategoies: ISubCategory[] =[];
   AllProduct: IProduct[] = [];
+  spasificProduct: IProduct[] = [];
   Error :string;
-
+  showSizeRing: boolean = false
   constructor(private catService:CategoryService, private subCatService:SubCategoryService,private prodServices: ProductService) {
     // this.img = ["m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg"]
    }
@@ -67,7 +68,28 @@ export class HomePageComponent implements OnInit {
   getAllProduct(): void{
     this.prodServices.getAllProduct().subscribe(sucess => {
     this.AllProduct = sucess;
+    this.spasificProduct = this.AllProduct;
   });
   }
+
+  filterProduct(id:number){
+    this.spasificProduct = []
+    if(id == 2)
+    {
+      this.showSizeRing = true
+    }
+    else
+    {
+      this.showSizeRing = false
+    }
+    this.prodServices.getAllProduct().subscribe(sucess => {
+      for(let prod of sucess)
+      {
+        if(prod.subCategoryID == id){
+          this.spasificProduct.push(prod)
+        }
+      }
+  })
+}
 
 }

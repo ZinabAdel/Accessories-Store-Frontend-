@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './Admin/add-product/add-product.component';
+import { ChooseCategoryComponent } from './Component/choose-category/choose-category.component';
 import { HomePageComponent } from './Component/home-page/home-page.component';
 import { KnowRingSizeComponent } from './Component/know-ring-size/know-ring-size.component';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
@@ -11,6 +12,7 @@ import { RegisterComponent } from './User/register/register.component';
 const routes: Routes = [
   {path: 'Register', component: RegisterComponent},
   {path: 'Login', component: LoginComponent},
+  {path: 'ChooseCategory', component: ChooseCategoryComponent},
   {path: 'HomePage', component: HomePageComponent},
 // , children:
 //   [{

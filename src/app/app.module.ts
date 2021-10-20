@@ -13,6 +13,7 @@ import { LoginComponent } from './User/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AddProductComponent } from './Admin/add-product/add-product.component';
+import { ChooseCategoryComponent } from './Component/choose-category/choose-category.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddProductComponent } from './Admin/add-product/add-product.component';
     RegisterComponent,
     LoginComponent,
     PageNotFoundComponent,
-    AddProductComponent
+    AddProductComponent,
+    ChooseCategoryComponent
   ],
   imports: [
     BrowserModule,
