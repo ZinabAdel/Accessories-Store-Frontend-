@@ -27,9 +27,9 @@
 
                   <div class="form-outline mb-4">
                     <label class="form-label float-end fs-4" for="form2Example17">اسم المستخدم</label>
-                    <input type="name" id="form2Example17" [class.is-invalid]="name.invalid && name.touched"  [class.is-valid]="name.valid " formControlName="name" class="form-control form-control-lg" required/>
-                    <div *ngIf="name.invalid && name.touched">
-                      <small class="text-danger float-end" *ngIf="name.errors.required">اسم المستخدم مطلوب</small>
+                    <input type="name" id="form2Example17" [class.is-invalid]="userName.invalid && userName.touched"  [class.is-valid]="userName.valid " formControlName="userName" class="form-control form-control-lg" required/>
+                    <div *ngIf="userName.invalid && userName.touched">
+                      <small class="text-danger float-end" *ngIf="userName.errors.required">اسم المستخدم مطلوب</small>
                   </div>
 
                   </div>
@@ -44,10 +44,10 @@
 
                   <div class="form-outline mb-4">
                     <label class="form-label float-end fs-4" for="form2Example27">كلمة المرور</label>
-                    <input type="password" id="form2Example27" [class.is-invalid]="password.invalid && password.touched"  [class.is-valid]="password.valid " formControlName="password" class="form-control form-control-lg" required  />
-                    <div *ngIf="password.invalid && password.touched">
-                      <small class="text-danger float-end" *ngIf="password.errors.required">كلمة المرور مطلوب</small>
-                      <small class="text-danger float-end" *ngIf="password.errors.minlength">يجب ادخال على الاقل 6 ارقام</small>
+                    <input type="password" id="form2Example27" [class.is-invalid]="passwordHash.invalid && passwordHash.touched"  [class.is-valid]="passwordHash.valid " formControlName="passwordHash" class="form-control form-control-lg" required  />
+                    <div *ngIf="passwordHash.invalid && passwordHash.touched">
+                      <small class="text-danger float-end" *ngIf="passwordHash.errors.required">كلمة المرور مطلوب</small>
+                      <small class="text-danger float-end" *ngIf="passwordHash.errors.minlength">يجب ادخال على الاقل 6 ارقام</small>
                   </div>
                   </div>
 
@@ -65,7 +65,9 @@
                   </div>
                   <p class="mb-5 pb-lg-2 text-center mt-5" > لدى حساب  <a href="Login" style="color: #393f81;" >سجل هنا</a></p>
                 </form>
-
+                <div class="alert alert-warning" *ngIf="onSubmit && isSignUpFailed">
+                  إنشاء الحساب خاطئ<br />{{ error }}
+                </div>
               </div>
             </div>
           </div>
