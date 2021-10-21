@@ -1,12 +1,12 @@
 <div class="container-fluid myPage pb-5">
         <div class="d-md-flex mx-auto pt-3">
-            <img src="../../../assets/logoChoose.jpg" alt="error">            
+            <img src="../../../assets/logoChoose.jpg" routerLink="HomePage" style="cursor: pointer;" alt="error">            
             <p class="h2 pt-5 text-center mx-auto" style="padding-left: 12%;">أهلا بك فى موقعنا</p>
         </div>
 
-        <div class="p-5 clearfix d-md-flex">
+        <div class="p-5 clearfix mb-md-5 d-md-flex">
             <ng-container *ngFor="let cat of Categoies">
-                <div class="col-md-4 mx-auto mb-3"> <p  class=" myCat text-center shadow-lg d-flex align-items-center justify-content-center h1"> {{cat.categoryName}} </p> </div>
+                <div class="col-md-4 mx-auto mb-3" (click)="whichCategory(cat.id)"> <p  class=" myCat text-center shadow-lg d-flex align-items-center justify-content-center h1"> {{cat.categoryName}} </p> </div>
             </ng-container>
             <div>
             </div>

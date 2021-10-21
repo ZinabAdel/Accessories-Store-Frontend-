@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/Services/category.service';
 import { ICategory } from '../Shared_Interfces/ICategory';
 
@@ -11,7 +12,7 @@ export class ChooseCategoryComponent implements OnInit {
   Categoies: ICategory[] =[];
   Error :string;
 
-  constructor(private catService:CategoryService) { }
+  constructor(private catService:CategoryService,private active:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.getCatigoreis()
@@ -26,6 +27,10 @@ export class ChooseCategoryComponent implements OnInit {
         this.Error = Wrong
       }      
     )
+  }
+
+  whichCategory(catId:number){
+    this.router.navigate(["Product/AllProduct/",catId])
   }
 
 }
