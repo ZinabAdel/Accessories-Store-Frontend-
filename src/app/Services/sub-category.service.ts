@@ -16,4 +16,15 @@ export class SubCategoryService {
     return this.http.get<ISubCategory[]>(`${environment.API_URL}/SubCategory`).pipe();
   }
 
+  addNewSubCategory(subCategory: ISubCategory): Observable<ISubCategory>{
+    return this.http.post<ISubCategory>(`${environment.API_URL}/SubCategory`,subCategory).pipe();
+  }
+
+  removeSubCategory(id: number): Observable<ISubCategory>{
+    return this.http.delete<ISubCategory>(`${environment.API_URL}/SubCAtegory/${id}`).pipe();
+  }
+
+  updateSubCategory(id:number,subCategory:ISubCategory): Observable<ISubCategory>{
+    return this.http.put<ISubCategory>(`${environment.API_URL}/SubCategory/${id}`,subCategory).pipe();
+  }
 }

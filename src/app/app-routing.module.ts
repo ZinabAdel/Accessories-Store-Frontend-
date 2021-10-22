@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoryComponent } from './Admin/add-category/add-category.component';
 import { AddProductComponent } from './Admin/add-product/add-product.component';
+import { AddSubCategoryComponent } from './Admin/add-sub-category/add-sub-category.component';
 import { ChooseCategoryComponent } from './Component/choose-category/choose-category.component';
 import { HomePageComponent } from './Component/home-page/home-page.component';
 import { KnowRingSizeComponent } from './Component/know-ring-size/know-ring-size.component';
@@ -21,6 +23,8 @@ const routes: Routes = [
 // ]},
    {path: 'RingSize', component: KnowRingSizeComponent, data: { footer: true, header: true }},
    {path: 'AddProduct', component: AddProductComponent},
+   {path: 'AddCategory', component: AddCategoryComponent},
+   {path: 'AddSubCategory', component: AddSubCategoryComponent},
    {path: '', redirectTo: '/HomePage', pathMatch: 'full'},
    {path: 'Product' , data: { footer: true, header: true },
    loadChildren: () => import('./Component/Products/product-module/product-module.module')

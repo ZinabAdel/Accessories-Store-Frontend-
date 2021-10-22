@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { AddProductComponent } from './Admin/add-product/add-product.component';
 import { ChooseCategoryComponent } from './Component/choose-category/choose-category.component';
+import { AddCategoryComponent } from './Admin/add-category/add-category.component';
+import { AddSubCategoryComponent } from './Admin/add-sub-category/add-sub-category.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ChooseCategoryComponent } from './Component/choose-category/choose-cate
     LoginComponent,
     PageNotFoundComponent,
     AddProductComponent,
-    ChooseCategoryComponent
+    ChooseCategoryComponent,
+    AddCategoryComponent,
+    AddSubCategoryComponent
   ],
   imports: [
     BrowserModule,

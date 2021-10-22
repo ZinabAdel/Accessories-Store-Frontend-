@@ -33,4 +33,7 @@ export class ChooseCategoryComponent implements OnInit {
     this.router.navigate(["Product/AllProduct/",catId])
   }
 
+  change():void{
+    this.router.navigateByUrl('HomePage')
+  }
 }
