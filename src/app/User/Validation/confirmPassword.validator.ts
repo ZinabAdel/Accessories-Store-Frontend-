@@ -12,3 +12,15 @@ export function ConfirmPasswordValidator(control:AbstractControl)
   }
   return password && confirmPassword && password.value!==confirmPassword.value ? {'misMatch':true}:null;
 }
+
+export function newConfirmPasswordValidator(control:AbstractControl)
+{
+  const password=  control.get('password');
+  const confirmPassword=control.get('newconfirmPassword');
+
+  if(password?.pristine || confirmPassword?.pristine)
+  {
+      return null;
+  }
+  return password && confirmPassword && password.value!==confirmPassword.value ? {'misMatch':true}:null;
+}

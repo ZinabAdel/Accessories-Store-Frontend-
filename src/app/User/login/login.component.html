@@ -28,7 +28,7 @@
                   <h5 class="fw-normal mb-3 pb-3 text-center fs-1 " style="letter-spacing: 1px;line-height:90px;">تسجيل دخول </h5>
 
                   <div class="form-outline mb-4">
-                    <label class="form-label fs-4 float-end" for="form2Example17">البريد الالكترونى</label>
+                    <label class="form-label fs-4 float-end" for="form2Example17"> اسم المستخدم</label>
                     <input type="text" id="form2Example17" [class.is-invalid]="userName.invalid && userName.touched" [class.is-valid]="userName.valid" formControlName="userName" class="form-control form-control-lg" required/>
                     <div *ngIf="userName.invalid && userName.touched">
                       <small class="text-danger float-end" *ngIf="userName.errors.required">البريد الالكترونى مطلوب</small>

@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'ChooseCategory', component: ChooseCategoryComponent},
   {path: 'HomePage', component: HomePageComponent},
+
 // , children:
 //   [{
 //     path: 'ProductDetails/:id' , component: ProductDetailsComponent
@@ -25,12 +26,15 @@ const routes: Routes = [
   {path: 'Product' ,
    loadChildren: () => import('./Component/Products/product-module/product-module.module')
    .then(product => product.ProductModuleModule)},
-   {path: '', redirectTo: '/HomePage', pathMatch: 'full'
-  },
+
+  {path: 'MyProfile',
+  loadChildren: () => import('./Component/Profile/profile-module/profile-module.module')
+  .then(profile => profile.ProfileModuleModule)},
+
+  {path: '', redirectTo: '/HomePage', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
