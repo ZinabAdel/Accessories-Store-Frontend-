@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
   private userSubject: BehaviorSubject<ILogin>;
   public user: Observable<ILogin>;
-  key:any;
+  key: any;
 
   constructor(private http: HttpClient,private router: Router,) {
-    this.key=localStorage.getItem('user');
+    this.key = localStorage.getItem('user');
     this.userSubject = new BehaviorSubject<ILogin>(JSON.parse(this.key));
     this.user = this.userSubject.asObservable();
   }
@@ -42,15 +42,15 @@ private setSession(authResult:any) {
 }
 
 
-logout() {
+logout() :void {
   // remove user from local storage to log user out
   localStorage.removeItem("token");
   localStorage.removeItem("expires_at");
-  this.router.navigate(['/Home']);
+  this.router.navigate(['/HomePage']);
 }
 
 public isLoggedIn() {
-  if(localStorage.getItem('token')){
+  if (localStorage.getItem('token')){
       let token:any = localStorage.getItem('token');
 
       let jwtData = token.split('.')[1]
@@ -65,7 +65,7 @@ public isLoggedIn() {
 
       if (expirationDate >= todayDate)
           return true;
-      
+
   }
   return false;
 }

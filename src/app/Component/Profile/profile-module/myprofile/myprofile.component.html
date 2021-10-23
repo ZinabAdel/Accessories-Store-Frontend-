@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+<img class="img-fluid w-25 mt-5 rounded-circle" src="assets/pexels-artem.jpg">
+
+
+<div class="container-fluid mx-5 mb-4 mt-4 d-inline-flex ">
+  <h2 class="mb-4 mx-5 mt-3 ">الاسم: </h2>
+  <h1 class="text-dark mt-3 fs-2" >{{userInfo.userName}}</h1>
+
+</div>
+<div *ngIf="!hide then open"></div>
+<button class=" btn  fs-6 mybtnLogout text-center me-5 mb-4 " (click)="openedit()">
+تعديل البيانات
+</button>
+<ng-template #open>
+  <div class="container-fluid ">
+    <div class="container-fluid mx-5 mb-4 mt-4">
+      <h2 class="mb-4">الاسم</h2>
+      <input class="text-dark mt-3 fs-5 form-control-md" type="text" [value]="userInfo.userName" #userName>
+    </div>
+    <div class="container-fluid me-5 mb-4 mt-4">
+      <input class="text-dark mt-3 fs-5 form-control-md" [value]="userInfo.email" #email>
+    </div>
+    <div class="container-fluid me-5 mb-4 mt-4">
+      <input class="text-dark mt-3 fs-5 form-control-md" [value]="userInfo.userName" #tel>
+
+    </div>
+    </div>
+
+    <div class="container-fluid">
+    <button class=" btn  fs-6 mybtnLogout  text-center me-5 mb-4 mt-4"  (click)="UpdateUserInfo(userName.value,email.value,tel.value)"> تغيير البيانات</button>
+
+      <h4 class=" btn  fs-6 mybtnLogout text-center me-5 mb-4  mt-4"  (click)="change()">تغير كلمة المرور</h4>
+
+    </div>
+
+
+    <!-- </div> -->
+</ng-template>
+

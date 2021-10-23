@@ -63,7 +63,7 @@
           <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
         </div>
       </div> -->
-     
+
       <p class="h2 text-center mb-5">جميع المنتجات</p>
       <div class="d-flex mx-auto flex-wrap justify-content-center">
           <div *ngFor="let product of AllProduct" >
@@ -75,6 +75,8 @@
                   <h5 class="card-title">{{product.productName}}</h5>
                   <p class="card-text">{{product.priceSilver}}ج</p>
                   <a href="#" class="btn myDetails" routerLink="{{'/Product/ProductDetails/'+ product.id}}">شاهد التفاصيل</a>
+                  <a href="#" class="btn myDetails me-1" routerLink="#">اطلب الان </a>
+
               </div>
               </div>
           </div>

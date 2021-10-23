@@ -42,29 +42,29 @@ return this.loginForm.get('passwordHash');
   this.signInUser(user);
  }
  get formFields(){
-     return this.loginForm.controls; 
+     return this.loginForm.controls;
   }
 
  signInUser(user: ILogin) {
-  this.signInService.SignIn(user).subscribe( _data => {
-    console.log("success")
+  this.signInService.SignIn(user).subscribe( data => {
+    console.log('success');
     this.isSuccessed = true;
 
-    },_err=>{
-      console.log("error")
+    }, err => {
+      console.log('error')
     })
 
     this.loading = true;
-    this.authenticationService.login(this.formFields.userName.value, this.formFields.passwordHash.value)
+     this.authenticationService.login(this.formFields.userName.value, this.formFields.passwordHash.value)
         .pipe(first())
         .subscribe(
             AData => {
                // this.router.navigate(['/ClassRoom']);
                this.isLoginFailed = false;
-               this.isLoggedIn= this.authenticationService.isLoggedIn();
+               this.isLoggedIn = this.authenticationService.isLoggedIn();
                this.Role=this.authenticationService.getRole();
-               console.log("Roleeeeeeeeeeeeeeee",this.authenticationService.getRole());
-               if(this.Role==='Client')
+               console.log('Roleeeeeeeeeeeeeeee',this.authenticationService.getRole());
+               if(this.Role=== 'Client')
                {
                 this.ClientPage();
                }
@@ -80,7 +80,7 @@ return this.loginForm.get('passwordHash');
             });
           }
   AdminPage() {
-    window.location.href='/Home';
+    window.location.href = '/HomePage';
   }
   ClientPage() {
     window.location.href='/ChooseCategory';
