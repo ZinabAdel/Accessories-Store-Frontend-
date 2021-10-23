@@ -16,12 +16,7 @@ const routes: Routes = [
   {path: 'Register', component: RegisterComponent, data: { footer: true, header: true }},
   {path: 'Login', component: LoginComponent, data: { footer: true, header: true }},
   {path: 'ChooseCategory', component: ChooseCategoryComponent},
-<<<<<<< HEAD
   {path: 'HomePage', component: HomePageComponent, data: { footer: true, header: true }},
-=======
-  {path: 'HomePage', component: HomePageComponent},
-
->>>>>>> c711fd941b89b5f897a786486eaecc37443418bc
 // , children:
 //   [{
 //     path: 'ProductDetails/:id' , component: ProductDetailsComponent
@@ -35,11 +30,6 @@ const routes: Routes = [
    {path: '', redirectTo: '/HomePage', pathMatch: 'full'},
    {path: 'Product' , data: { footer: true, header: true },
    loadChildren: () => import('./Component/Products/product-module/product-module.module')
-<<<<<<< HEAD
-   .then(product => product.ProductModuleModule)
-   },   
-   {path: '**', component: PageNotFoundComponent},
-=======
    .then(product => product.ProductModuleModule)},
 
   {path: 'MyProfile',
@@ -48,7 +38,6 @@ const routes: Routes = [
 
   {path: '', redirectTo: '/HomePage', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
->>>>>>> c711fd941b89b5f897a786486eaecc37443418bc
 
 ];
 @NgModule({
