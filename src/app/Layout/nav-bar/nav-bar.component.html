@@ -2,74 +2,61 @@
     <div class="container-fluid">
       <a class="navbar-brand d-flex" routerLink="HomePage">
         <div><img src="../../../assets/webBackGround.png" alt="error" style="max-width:100%; height: auto" class="rounded-pill"></div>
-        <div><p class="text-light mt-4"> قلاوون </p></div>
+        <!-- <div style="width: 40%; height: 100%;" class="mt-auto m-0"><img src="../../../assets/titel.jpg" class="mt-auto" alt="error" style="max-width:100%; height: auto;" ></div> -->
+        <div><p class="text-light mt-4"> قلاوون </p></div>      
       </a>
+      <div class="collapse navbar-collapse clearfix"  id="navbarSupportedContent">
+        <div *ngIf="isLoggedIn()&& role()==='Client'; then Client"></div>
+        <p *ngIf="isLoggedIn();then LoginProduct"></p>
+      </div>
 
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler me-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+      <!-- <div class="collapse navbar-collapse"  id="navbarSupportedContent"> -->
         <div class="navbar-nav me-auto">
-          <div *ngIf="isLoggedIn()&& role()==='Client'; then Client "></div>
           <div *ngIf="isLoggedIn() && role()==='Admin';then Admin "></div>
 
-
           <ng-template #Client>
-            <a class="nav-link active " aria-current="page" href="#" routerLink="ChooseCategory"><button type="button" class="btn mybtnRegister" >اختار الفئة</button></a>
+            <a class="nav-link active" aria-current="page" href="#" routerLink="ChooseCategory"><a class="text-decoration-none mybtnRegister" >اختار الفئة</a></a>
           </ng-template>
 
           <ng-template #Admin>
           <a class="nav-link" href="#"><button type="button" class="btn me-3 mybtnRegister" routerLink="/AddProduct"> Admin DashBoard</button></a>
-
-
           </ng-template>
 
           <p *ngIf="isLoggedIn();then Login else NotLogin"></p>
           <ng-template #NotLogin>
             <a class="nav-link active" aria-current="page" href="#" routerLink="Login"><button type="button" class="btn mybtnRegister" >تسجيل الدخول</button></a>
-
           </ng-template>
 
+          <ng-template #LoginProduct>
+            <a class="nav-link" href="#"  routerLink="/Product/ProductDetails"><a class="text-decoration-none mybtnRegister"> منتجاتنا</a></a>
+          </ng-template>  
           <ng-template #Login>
-
-          <a class="nav-link" href="#"><button type="button" class="btn me-3 mybtnRegister  " routerLink="/Product/ProductDetails"> منتجاتنا</button></a>
-
-
+          <!-- <a class="nav-link float-left" href="#"><button type="button" class="btn mybtnRegister" routerLink="/Product/ProductDetails"> منتجاتنا</button></a> -->
               <li class="nav-item dropdown">
-              <i class="fas fa-user-alt  mt-2   fs-5 text-light" ></i>
-
-                <a class="nav-link dropdown-toggle mt-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user-alt mt-2 fs-5 text-light p-1" style="background-color: rgb(185, 184, 184); border-radius: 50%;"></i>
+                <a class="nav-link dropdown-toggle pt-0 mt-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
                   <h4 class=" dropdown-item nav-link active  fs-6 btn bg-white text-center" style="color: #9c627d;">{{userInfo.userName}}</h4>
-
-                  <li class="mt-2"><button class="dropdown-item btn mybtnLogout fs-6 text-center"  routerLink="MyProfile/Profile">MY Profile</button>
+                  <li class="mt-2"><button class="dropdown-item btn mybtnLogout fs-6 text-center"  routerLink="MyProfile/Profile">صفحتى</button>
                   </li>
-
                   <li>
                     <button  type="button" class=" dropdown-item nav-link active bg-white fs-6 btn mybtnLogout text-center" style="color: #9c627d;" (click)="Logout()" >تسجيل خروج
                       <i class="fas fa-sign-out-alt mx-2 mb-1"></i></button>
                   </li>
-
-
                 </ul>
               </li>
-            </ng-template>
+          </ng-template>
 
           <div *ngIf="!isLoggedIn(); then  log"></div>
           <ng-template #log>
             <a class="nav-link active" aria-current="page" href="#" routerLink="Register"><button type="button" class="btn mybtnRegister" >انشاء حساب </button></a>
-
           </ng-template>
-
-
-
-
-
         </div>
-      </div>
+      <!-- </div> -->
   </div>
 </nav>
 
