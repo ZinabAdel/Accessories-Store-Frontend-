@@ -16,6 +16,7 @@ import { AddProductComponent } from './Admin/add-product/add-product.component';
 import { ChooseCategoryComponent } from './Component/choose-category/choose-category.component';
 import { AddCategoryComponent } from './Admin/add-category/add-category.component';
 import { AddSubCategoryComponent } from './Admin/add-sub-category/add-sub-category.component';
+import { FeedbackComponent } from './Component/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AddSubCategoryComponent } from './Admin/add-sub-category/add-sub-catego
     AddProductComponent,
     ChooseCategoryComponent,
     AddCategoryComponent,
-    AddSubCategoryComponent
+    AddSubCategoryComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
