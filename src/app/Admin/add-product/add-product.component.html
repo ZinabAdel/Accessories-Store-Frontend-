@@ -1,37 +1,207 @@
-<div class="container-fluid">
-    <form style="width: 70%;" class="mx-auto">
-        <p class="h3 mt-5 fs-2 text-center">أضف منتج جديد</p>
-        <div class="mb-4 mx-auto">
-            <label class="form-label fw-bold mt-5">صورة المنتج</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="mb-4 mx-auto">
-            <label class="form-label fw-bold">السعر</label>
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <div class="input-group-append">
-                  <span class="input-group-text">ج</span>
+<div class="container-fluid myProduct p-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" >
+                <p class="h3 fs-2 text-center myAddText">أضف منتج جديد</p>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mt-5">اسم المنتج</label>
+                    <input type="text" class="form-control" id="form2Example17" [class.is-invalid]="productName.invalid && productName.touched" [class.is-valid]="productName.valid" formControlName="productName" class="form-control form-control-lg" required>
+                    <div *ngIf="productName.invalid && productName.touched">
+                        <small class="text-danger float-end" *ngIf="productName.errors.required">الاسم مطلوب</small>
+                    </div>
                 </div>
-              </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">سعره للفضى</label>
+                    <div class="input-group" >
+                        <input type="text" class="form-control"  [class.is-invalid]="priceSilver.invalid && priceSilver.touched" [class.is-valid]="priceSilver.valid" formControlName="priceSilver" required>
+                        <div class="input-group-append">
+                        <span class="input-group-text">ج</span>
+                        </div>
+                    </div>
+                    <div *ngIf="priceSilver.invalid && priceSilver.touched">
+                        <small class="text-danger float-end" *ngIf="priceSilver.errors.required">السعر مطلوب</small>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">سعره للذهبى</label>
+                    <div class="input-group" >
+                        <input type="text" class="form-control" [class.is-invalid]="priceGold.invalid && priceGold.touched" [class.is-valid]="priceGold.valid" formControlName="priceGold" required>
+                        <div class="input-group-append">
+                        <span class="input-group-text">ج</span>
+                        </div>
+                    </div>
+                    <div *ngIf="priceGold.invalid && priceGold.touched">
+                        <small class="text-danger float-end" *ngIf="priceGold.errors.required">السعر مطلوب</small>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">الصنف</label>
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="categoryID.invalid && categoryID.touched" [class.is-valid]="categoryID.valid" formControlName="categoryID" required>
+                            <option *ngFor="let cat of Categoies" [value]="cat.id">{{cat.categoryName}}</option>
+                        </select>
+                        <div *ngIf="categoryID.invalid && categoryID.touched">
+                            <small class="text-danger float-end" *ngIf="categoryID.errors.required">الصنف مطلوب</small>
+                        </div>
+                        <!-- <label for="floatingSelect">النوع</label> -->
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">النوع</label>
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="subCategoryID.invalid && subCategoryID.touched" [class.is-valid]="subCategoryID.valid" formControlName="subCategoryID" required>
+                            <option *ngFor="let subCat of subCategoies" [value]="subCat.id">{{subCat.subCategoryName}}</option>
+                        </select>
+                        <div *ngIf="subCategoryID.invalid && subCategoryID.touched">
+                            <small class="text-danger float-end" *ngIf="subCategoryID.errors.required">النوع مطلوب</small>
+                        </div>
+                        <!-- <label for="floatingSelect">اختار المنتج</label> -->
+                    </div>
+                </div>
+                <button type="submit" (click)="addNewProduct()" class="btn mb-5 px-5 py-2 myBtn">حفظ</button>
+                <div *ngIf="idClicked">
+                    <div *ngIf="isAddProduct then success else wrong"></div>
+                        <ng-template #success>
+                            <div class="alert alert-success" role="alert">
+                                تم الأضافه بنجاح
+                            </div>
+                        </ng-template>
+                        <ng-template #wrong>
+                            <div class="alert alert-warning" role="alert">
+                            حدث خطأ بالأضافه
+                            </div>
+                        </ng-template>
+                </div>
+            </form>  
+            <hr>
         </div>
-        <div class="mb-4 mx-auto">
-            <label class="form-label fw-bold">الصنف</label>
-            <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                    <option *ngFor="let cat of Categoies">{{cat.categoryName}}</option>
-                </select>
-                <!-- <label for="floatingSelect">النوع</label> -->
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <p class="h3 fs-2 text-center myAddText my-4">المنتجات الموجودة</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover border border-dark text-center">
+                        <thead >
+                        <tr class="myHeaderTabel">
+                            <th scope="col"class="all" >#</th>
+                            <th scope="col">الأسم</th>
+                            <th scope="col">الصورة</th>
+                            <th scope="col">السعر الذهبى</th>
+                            <th scope="col">السعر الفضى</th>
+                            <th scope="col">الصنف</th>
+                            <th scope="col">النوع</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody *ngFor="let product of products , let i=index" >
+                        <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productImage}}</td>
+                            <td>{{product.priceSilver}} ج</td>
+                            <td>{{product.priceGold}} ج</td>
+                            <td>
+                                <div *ngFor="let cat of Categoies , let i=index" >
+                                    <div *ngIf="cat.id == product.categoryID">
+                                        {{cat.categoryName}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngFor="let subCat of subCategoies , let i=index" >
+                                    <div *ngIf="subCat.id == product.subCategoryID">
+                                        {{subCat.subCategoryName}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">مسح</button></td>
+                            <td>  
+                                <!-- Button trigger modal -->
+                                <button type="button" (click)="getToupdateProduct(product)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> تعديل </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">تعديل المنتج</h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" >
+                    <div class="mb-4">
+                        <label class="form-label fw-bold mt-5">اسم المنتج</label>
+                        <input type="text" class="form-control" id="form2Example17" [class.is-invalid]="productName.invalid && productName.touched" [class.is-valid]="productName.valid" formControlName="productName" class="form-control form-control-lg" required>
+                        <div *ngIf="productName.invalid && productName.touched">
+                            <small class="text-danger float-end" *ngIf="productName.errors.required">الاسم مطلوب</small>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">سعره للفضى</label>
+                        <div class="input-group" >
+                            <input type="text" class="form-control"  [class.is-invalid]="priceSilver.invalid && priceSilver.touched" [class.is-valid]="priceSilver.valid" formControlName="priceSilver" required>
+                            <div class="input-group-append">
+                            <span class="input-group-text">ج</span>
+                            </div>
+                        </div>
+                        <div *ngIf="priceSilver.invalid && priceSilver.touched">
+                            <small class="text-danger float-end" *ngIf="priceSilver.errors.required">السعر مطلوب</small>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">سعره للذهبى</label>
+                        <div class="input-group" >
+                            <input type="text" class="form-control" [class.is-invalid]="priceGold.invalid && priceGold.touched" [class.is-valid]="priceGold.valid" formControlName="priceGold" required>
+                            <div class="input-group-append">
+                            <span class="input-group-text">ج</span>
+                            </div>
+                        </div>
+                        <div *ngIf="priceGold.invalid && priceGold.touched">
+                            <small class="text-danger float-end" *ngIf="priceGold.errors.required">السعر مطلوب</small>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">الصنف</label>
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="categoryID.invalid && categoryID.touched" [class.is-valid]="categoryID.valid" formControlName="categoryID" required>
+                                <option *ngFor="let cat of Categoies" [value]="cat.id">{{cat.categoryName}}</option>
+                            </select>
+                            <div *ngIf="categoryID.invalid && categoryID.touched">
+                                <small class="text-danger float-end" *ngIf="categoryID.errors.required">الصنف مطلوب</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">النوع</label>
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="subCategoryID.invalid && subCategoryID.touched" [class.is-valid]="subCategoryID.valid" formControlName="subCategoryID" required>
+                                <option *ngFor="let subCat of subCategoies" [value]="subCat.id">{{subCat.subCategoryName}}</option>
+                            </select>
+                            <div *ngIf="subCategoryID.invalid && subCategoryID.touched">
+                                <small class="text-danger float-end" *ngIf="subCategoryID.errors.required">النوع مطلوب</small>
+                            </div>
+                        </div>
+                    </div>
+                </form>   
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">قفل</button>
+                <button type="button" class="btn btn-primary" type="submit" (click)="updateProduct(objectToUpdate.id)">حفظ الغيير</button>
+            </div>
             </div>
         </div>
-        <div class="mb-4 mx-auto">
-            <label class="form-label fw-bold">النوع</label>
-            <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                    <option *ngFor="let subCat of subCategoies">{{subCat.subCategoryName}}</option>
-                </select>
-                <!-- <label for="floatingSelect">اختار المنتج</label> -->
-            </div>
-        </div>
-        <button type="submit" class="btn mb-5 px-5 py-2 myBtn">حفظ</button>
-      </form>
+    </div>
 </div>

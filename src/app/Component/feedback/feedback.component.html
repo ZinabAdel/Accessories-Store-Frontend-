@@ -1,0 +1,23 @@
+<div class="container-fluid myPage p-5">
+    <p class="h3 mb-5 text-center myText">رأيك يهمنا</p>
+    <form action="/action_page.php">
+        <div class="mb-3 mt-3">
+          <label for="comment" class="mb-1 fs-4">رأيك :</label>
+          <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+        </div>
+        <div *ngIf="isClicked">
+            <div *ngIf="isEnteredFeedback then success else wrong"></div>
+                <ng-template #success>
+                    <!-- <div class="alert alert-success" role="alert">
+                        تم الأضافه بنجاح
+                    </div> -->
+                </ng-template>
+                <ng-template #wrong>
+                    <div class="alert alert-warning" role="alert">
+                        يرجى ادخال رأيك للإرسال
+                    </div>
+                </ng-template>
+        </div>
+        <button type="submit" class="btn myBtn" (click)="send()">إرسال</button>
+    </form>
+</div>

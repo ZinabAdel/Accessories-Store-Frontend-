@@ -17,5 +17,16 @@ export class CategoryService {
     return this.http.get<ICategory[]>(`${environment.API_URL}/Category`).pipe();
   }
 
+  addNewCategory(category: ICategory): Observable<ICategory>{
+    return this.http.post<ICategory>(`${environment.API_URL}/Category`,category).pipe();
+  }
 
+  removeCategory(id: number): Observable<ICategory>{
+    return this.http.delete<ICategory>(`${environment.API_URL}/Category/${id}`).pipe();
+  }
+
+  updateCategory(id:number,category:ICategory): Observable<ICategory>{
+    console.log("updat",id,category)
+    return this.http.put<ICategory>(`${environment.API_URL}/Category/${id}`,category).pipe();
+  }
 }

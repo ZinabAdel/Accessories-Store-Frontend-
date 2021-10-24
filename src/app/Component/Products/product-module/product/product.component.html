@@ -1,0 +1,29 @@
+<div class="container-fluid p-5" id="product">
+    <div class="d-flex flex-wrap pb-4 justify-content-center">
+        <button (click)="setAllProductCategory()" class="d-lg-block mb-lg-3 me-1 px-5 mt-3 btn myLink" style="height: 58px;">الكل</button>
+        <div *ngFor="let subCat of subCategoies" class="my-3 ">
+          <button (click)="filterProduct(subCat.id)" class="link-dark d-lg-block mb-lg-3 me-1 px-5 py-3 btn myLink">{{subCat.subCategoryName}}</button>
+        </div>
+    </div>
+
+    <div *ngIf="showSizeRing">
+      <div class="text-center mb-4">
+        <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
+      </div>
+    </div>
+   
+    <div class="d-flex mx-auto flex-wrap justify-content-center">
+        <div *ngFor="let product of spasificProduct" >
+            <div class="card me-4 mb-3 myCardProduct" style="width: 16rem; min-height: auto; height: 400px;">
+            <div class="align-center" style="max-height: 65%; height: 65%;">
+              <img [src]="createImgPath(product.productImage)" class="card-img-top p-3 my-auto" alt="error">
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title">{{product.productName}}</h5>
+                <p class="card-text">{{product.priceSilver}}ج</p>
+                <a href="#" class="btn myDetails" routerLink="{{'/Product/ProductDetails/'+ product.id}}">شاهد التفاصيل</a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

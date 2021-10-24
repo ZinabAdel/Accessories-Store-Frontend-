@@ -18,22 +18,23 @@ export class ProductService {
   getProductById(prodId: number): Observable<IProduct>{
     return this.http.get<IProduct>(`${environment.API_URL}/Product/${prodId}`).pipe();
   }
-  getProductsBySubCategory(subCategoryId: number): Observable<IProduct>{
-    return this.http.get<IProduct>(`${environment.API_URL}/Product/ProductBySubCategory/${subCategoryId}`).pipe();
+  getProductsBySubCategory(subCategoryId: number): Observable<IProduct[]>{
+    return this.http.get<IProduct[]>(`${environment.API_URL}/Product/ProductBySubCategory/${subCategoryId}`).pipe();
   }
-  getProductsByCategory(CategoryId: number): Observable<IProduct>{
-    return this.http.get<IProduct>(`${environment.API_URL}/Product/ProductByCategory/${CategoryId}`).pipe();
+  getProductsByCategory(CategoryId: number): Observable<IProduct[]>{
+    return this.http.get<IProduct[]>(`${environment.API_URL}/Product/ProductByCategory/${CategoryId}`).pipe();
   }
   
-  AddNewProduct(product: IProduct): Observable<IProduct[]>{
-    return this.http.get<IProduct[]>(`${environment.API_URL}/Product/{product}`).pipe();
+  AddNewProduct(product: IProduct): Observable<IProduct>{
+    return this.http.post<IProduct>(`${environment.API_URL}/Product`,product).pipe();
   }
 
-  updateProduct(): Observable<IProduct[]>{
-    return this.http.get<IProduct[]>(`${environment.API_URL}/Product`).pipe();
+  updateProduct(id:number,product:IProduct): Observable<IProduct>{
+    return this.http.put<IProduct>(`${environment.API_URL}/Product/${id}`,product).pipe();
   }
-  removeProduct(id: number): Observable<IProduct[]>{
-    return this.http.get<IProduct[]>(`${environment.API_URL}/Product/{id}`).pipe();
+  
+  removeProduct(id: number): Observable<IProduct>{
+    return this.http.delete<IProduct>(`${environment.API_URL}/Product/${id}`).pipe();
   }
 
 
