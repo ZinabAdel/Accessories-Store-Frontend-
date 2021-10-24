@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { OrdersComponent } from './Admin/orders/orders.component';
 import { ShowFeedbackComponent } from './Admin/show-feedback/show-feedback.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { HomePageComponent } from './Component/home-page/home-page.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
    {path: 'RingSize', component: KnowRingSizeComponent, data: { footer: true, header: true }},
    {path: 'Feedback', component: FeedbackComponent, data: { footer: true, header: true }},
    {path: 'ShowFeedback', component: ShowFeedbackComponent, data: { footer: true, header: true }},
+   {path: 'Orders', component: OrdersComponent, data: { footer: true, header: true }},
 
    {path: 'Product' , data: { footer: true, header: true },
    loadChildren: () => import('./Component/Products/product-module/product-module.module')

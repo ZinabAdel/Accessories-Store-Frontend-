@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { ShowFeedbackComponent } from './Admin/show-feedback/show-feedback.component';
+import { OrdersComponent } from './Admin/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ShowFeedbackComponent } from './Admin/show-feedback/show-feedback.compo
     LoginComponent,
     PageNotFoundComponent,
     FeedbackComponent,
-    ShowFeedbackComponent
+    ShowFeedbackComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

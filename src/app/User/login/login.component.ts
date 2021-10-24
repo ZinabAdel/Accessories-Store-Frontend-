@@ -83,6 +83,6 @@ return this.loginForm.get('passwordHash');
     window.location.href = '/HomePage';
   }
   ClientPage() {
-    window.location.href='/ChooseCategory';
+    window.location.href='/Product/ChooseCategory';
   }
 }
