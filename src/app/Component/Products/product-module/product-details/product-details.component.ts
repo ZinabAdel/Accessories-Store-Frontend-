@@ -29,4 +29,7 @@ public createImgPath = (serverPath: string) => {
   console.log(`${environment.API_URLIMG}/${serverPath}`);
   return `${environment.API_URLIMG}/${serverPath}`;
 }
+AddToCart(){
+
+}
 }

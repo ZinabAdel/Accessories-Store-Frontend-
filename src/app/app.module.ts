@@ -26,7 +26,7 @@ import { ChooseCategoryComponent } from './Component/choose-category/choose-cate
     LoginComponent,
     PageNotFoundComponent,
     AddProductComponent,
-    ChooseCategoryComponent
+    ChooseCategoryComponent,
   ],
   imports: [
     BrowserModule,

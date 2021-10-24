@@ -5,10 +5,14 @@
         <h5 class="card-title"> {{productid.productName}}</h5>
         <p class="card-text">{{productid.productName}}</p>
         <p class="card-text"><small class="text-muted"></small></p>
+        <button class="btn btn-outline-dark float-start" (click)="AddToCart()"><i class="fas fa-shopping-cart"></i></button>
+        <a href="#" class="btn myDetails me-1" routerLink="#"> </a>
+
       </div>
     </div>
-    <div class="col-md-4 float-start" >
-      <img [src]="createImgPath(productid.productImage)" class="img-fluid rounded-start bord " style="height:250px;" alt="...">
+    <div class="col-md-4 float-start">
+      <img [src]="createImgPath(productid.productImage)" class="img-fluid rounded-start bord " style="height:250px;"
+        alt="...">
     </div>
   </div>
 </div>

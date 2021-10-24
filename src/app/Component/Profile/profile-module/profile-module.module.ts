@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountUserComponent } from 'src/app/Admin/account-user/account-user.component';
 
 
 
@@ -12,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {path: 'Profile', component: MYProfileComponent},
   {path: 'UpdatePassword', component: ChangePasswordComponent},
+  {path: 'Users', component: AccountUserComponent},
+
 
 ];
 
@@ -20,7 +23,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MYProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AccountUserComponent
+
   ],
   imports: [
     CommonModule,
