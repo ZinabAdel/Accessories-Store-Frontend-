@@ -23,22 +23,36 @@
             <a class="nav-link active" aria-current="page" href="#" routerLink="Feedback"><a class="text-decoration-none mybtnRegister" >رأيك يهمنا</a></a>
           </ng-template>
 
-          <ng-template #Admin>
-          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/AddProduct"> صفحة الأدمن</a></a>
-          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddProduct"> إضافة منتجات</a></a>
-          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddCategory">إضافة صنافه </a></a>
-          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddSubCategory">إضافة أنواع</a></a>
-          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Orders">الطلبات</a></a>
-          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/ShowFeedback">الأراء</a></a>
+          <ng-template #Admin>     
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light me-4 fw-bolder fs-5 mb-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                الأضافات
+              </a>
+              <ul class="dropdown-menu myNav shadow-lg" aria-labelledby="navbarDropdown">
+                <li>         
+                   <a class="dropdown-item" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddProduct"> إضافة منتجات</a></a>
+                </li>
+                <li>          
+                   <a class="dropdown-item" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddCategory">إضافة أصناف </a></a>
+                </li>
+                <li>         
+                   <a class="dropdown-item" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddSubCategory">إضافة أنواع</a></a>
+                </li>
+              </ul>
+            </li>       
+            <!-- <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/AddProduct"> صفحة الأدمن</a></a> -->
+            <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Orders">الطلبات</a></a>
+            <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/ShowFeedback">الأراء</a></a>
           </ng-template>
 
           <p *ngIf="isLoggedIn();then Login else NotLogin"></p>
           <ng-template #NotLogin>
             <a class="nav-link active" aria-current="page" href="#" routerLink="Login"><button type="button" class="btn mybtnRegister" >تسجيل الدخول</button></a>
+          
           </ng-template>
 
           <ng-template #LoginProduct>
-            <a class="nav-link" href="#"  routerLink="/Product/ProductDetails"><a class="text-decoration-none mybtnRegister"> منتجاتنا</a></a>
+            <!-- <a class="nav-link" href="#"  routerLink="/Product/ProductDetails"><a class="text-decoration-none mybtnRegister"> منتجاتنا</a></a> -->
           </ng-template>  
           <ng-template #Login>
           <!-- <a class="nav-link float-left" href="#"><button type="button" class="btn mybtnRegister" routerLink="/Product/ProductDetails"> منتجاتنا</button></a> -->
@@ -68,9 +82,3 @@
       <!-- </div> -->
   </div>
 </nav>
-
-
-
-
-
-

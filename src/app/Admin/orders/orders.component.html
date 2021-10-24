@@ -1,12 +1,11 @@
-<div class="container-fluid">
-    <div class="p-4">
-        <button class="btn border p-3 border-1 btnOrder">الطلبات تم تسليمها</button>
-        <button class="btn border p-3 border-1 btnOrder">الطلبات جارى تنفيذها</button>
+<div class="container-fluid myPage pb-4">
+    <div class="p-4 d-flex mb-4 justify-content-evenly">
+        <button class="shadow-lg btn border p-3 border-1 btnOrder bg-light" (click)="getNotFinishedOrders()">الطلبات جارى تنفيذها</button>
+        <button class="shadow-lg btn border p-3 border-1 btnOrder bg-light" (click)="getFinishedOrders()">الطلبات تم تسليمها</button>
     </div>
     <div class="row">
-        <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <p class="h3 fs-2 text-center my-4 mb-5 myTitel">الأصناف الموجودة</p>
+        <div class="col-md-10 mx-auto">
+            <div class="table-responsive">
                 <table class="shadow-lg table table-bordered table-hover border border-dark text-center">
                     <thead >
                     <tr class="myHeaderTabel">
@@ -15,24 +14,24 @@
                         <th scope="col">صوره المنتج</th>
                         <th scope="col">السعر</th>
                         <th scope="col">رقم العميل</th>
-                        <th scope="col"></th>
+                        <th scope="col" *ngIf="isFinish == 0"></th>
                     </tr>
                     </thead>
                     <tbody *ngFor="let order of orders , let i=index" >
-                            <tr *ngIf="order.finish == 0">
-                                <th scope="row">{{i+1}}</th>
-                                <td>{{order.productName}}</td>
-                                <td><img [src]="createImgPath(order.productImage)"></td>
-                                <td>{{order.price}}</td>
-                                <td>{{order.phoneNumber}}</td>
-                                <td>  
-                                    <button type="button" class="btn btn-success"> تم التسليم </button>
-                                </td>
-                            </tr>
+                        <tr *ngIf="order.finish == isFinish">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{order.productName}}</td>
+                            <td><img [src]="createImgPath(order.productImage)"></td>
+                            <td>{{order.price}}</td>
+                            <td>{{order.phoneNumber}}</td>
+                            <td *ngIf="order.finish == 0">  
+                                <button type="button" class="btn btn-success" (click)="makeRecived(order.id,order)"> تم التسليم </button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-        <div class="col-md-4"></div>
+        </div>
     </div>
 
 </div>
