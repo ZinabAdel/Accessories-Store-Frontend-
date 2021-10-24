@@ -3,11 +3,12 @@
       <a class="navbar-brand d-flex" routerLink="HomePage">
         <div><img src="../../../assets/webBackGround.png" alt="error" style="max-width:100%; height: auto" class="rounded-pill"></div>
         <!-- <div style="width: 40%; height: 100%;" class="mt-auto m-0"><img src="../../../assets/titel.jpg" class="mt-auto" alt="error" style="max-width:100%; height: auto;" ></div> -->
-        <div><p class="text-light mt-4"> قلاوون </p></div>      
+        <div><p class="text-light mt-4 fs-3 mx-2" style="font-family: Arial, Helvetica, sans-serif"> <em>قلاوون</em> </p></div>      
       </a>
-      <div class="collapse navbar-collapse clearfix"  id="navbarSupportedContent">
+      <div class="collapse navbar-collapse"  id="navbarSupportedContent">
         <div *ngIf="isLoggedIn()&& role()==='Client'; then Client"></div>
         <p *ngIf="isLoggedIn();then LoginProduct"></p>
+        <div *ngIf="isLoggedIn() && role()==='Admin';then Admin "></div>
       </div>
 
       <button class="navbar-toggler me-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,14 +16,19 @@
       </button>
       <!-- <div class="collapse navbar-collapse"  id="navbarSupportedContent"> -->
         <div class="navbar-nav me-auto">
-          <div *ngIf="isLoggedIn() && role()==='Admin';then Admin "></div>
+          <!-- <div *ngIf="isLoggedIn() && role()==='Admin';then Admin "></div> -->
 
           <ng-template #Client>
             <a class="nav-link active" aria-current="page" href="#" routerLink="ChooseCategory"><a class="text-decoration-none mybtnRegister" >اختار الفئة</a></a>
+            <a class="nav-link active" aria-current="page" href="#" routerLink="Feedback"><a class="text-decoration-none mybtnRegister" >رأيك يهمنا</a></a>
           </ng-template>
 
           <ng-template #Admin>
-          <a class="nav-link" href="#"><button type="button" class="btn me-3 mybtnRegister" routerLink="/AddProduct"> Admin DashBoard</button></a>
+          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/AddProduct"> صفحة الأدمن</a></a>
+          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddProduct"> إضافة منتجات</a></a>
+          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddCategory">إضافة صنافه </a></a>
+          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddSubCategory">إضافة أنواع</a></a>
+          <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/ShowFeedback">الأراء</a></a>
           </ng-template>
 
           <p *ngIf="isLoggedIn();then Login else NotLogin"></p>
@@ -35,12 +41,11 @@
           </ng-template>  
           <ng-template #Login>
           <!-- <a class="nav-link float-left" href="#"><button type="button" class="btn mybtnRegister" routerLink="/Product/ProductDetails"> منتجاتنا</button></a> -->
+             <div class="d-flex rounded-pill justify-content-center pt-2 ps-3" style="width:150px; background-color: #57253c;">
               <li class="nav-item dropdown">
-              <i class="fas fa-user-alt mt-2 fs-5 text-light p-1" style="background-color: rgb(185, 184, 184); border-radius: 50%;"></i>
-                <a class="nav-link dropdown-toggle pt-0 mt-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle mt-1 me-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <h4 class=" dropdown-item nav-link active  fs-6 btn bg-white text-center" style="color: #9c627d;">{{userInfo.userName}}</h4>
                   <li class="mt-2"><button class="dropdown-item btn mybtnLogout fs-6 text-center"  routerLink="MyProfile/Profile">صفحتى</button>
                   </li>
                   <li>
@@ -49,6 +54,9 @@
                   </li>
                 </ul>
               </li>
+              <p class="p-2 fs-6 text-center text-light ">{{userInfo.userName}}</p>
+              <i class="fas fa-user-alt mt-2 fs-5 text-light me-2 "></i>
+             </div>
           </ng-template>
 
           <div *ngIf="!isLoggedIn(); then  log"></div>

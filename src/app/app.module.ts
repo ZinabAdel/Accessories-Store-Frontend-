@@ -13,6 +13,7 @@ import { LoginComponent } from './User/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
+import { ShowFeedbackComponent } from './Admin/show-feedback/show-feedback.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FeedbackComponent } from './Component/feedback/feedback.component';
     RegisterComponent,
     LoginComponent,
     PageNotFoundComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ShowFeedbackComponent
   ],
   imports: [
     BrowserModule,
