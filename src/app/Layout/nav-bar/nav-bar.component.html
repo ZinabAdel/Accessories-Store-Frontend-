@@ -19,6 +19,7 @@
     </button>
     <div class="navbar-nav me-auto">
 
+<<<<<<< HEAD
       <ng-template #Client>
         <a class="nav-link active " aria-current="page" href="#" routerLink="ChooseCategory"><a
             class="text-decoration-none mybtnRegister">اختار الفئة</a></a>
@@ -89,3 +90,83 @@
     </div>
   </div>
 </nav>
+=======
+          <ng-template #Client>
+            <a class="nav-link active" aria-current="page" href="#" routerLink="Product/ChooseCategory"><a class="text-decoration-none mybtnRegister" >اختار الفئة</a></a>
+            <a class="nav-link active" aria-current="page" href="#" routerLink="Feedback"><a class="text-decoration-none mybtnRegister" >رأيك يهمنا</a></a>
+          </ng-template>
+
+          <ng-template #Admin>     
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light me-4 fw-bolder fs-5 mb-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                الأضافات
+              </a>
+              <ul class="dropdown-menu myNav shadow-lg" aria-labelledby="navbarDropdown">
+                <li>         
+                   <a class="dropdown-item" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddProduct"> إضافة منتجات</a></a>
+                </li>
+                <li>          
+                   <a class="dropdown-item" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddCategory">إضافة أصناف </a></a>
+                </li>
+                <li>         
+                   <a class="dropdown-item" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Product/AddSubCategory">إضافة أنواع</a></a>
+                </li>
+              </ul>
+            </li>       
+            <!-- <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/AddProduct"> صفحة الأدمن</a></a> -->
+            <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/Orders">الطلبات</a></a>
+            <a class="nav-link" href="#"><a class="text-decoration-none mybtnRegister" routerLink="/ShowFeedback">الأراء</a></a>
+          </ng-template>
+
+          <p *ngIf="isLoggedIn();then Login else NotLogin"></p>
+          <ng-template #NotLogin>
+            <div class="d-flex rounded-pill justify-content-center pt-2 ps-3" style="width:150px; background-color: #57253c;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle mt-1 me-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="mt-2">
+                  <a class="nav-link active" aria-current="page" href="#" routerLink="Login"><button type="button" class="btn" >تسجيل الدخول</button></a>
+                </li>
+                <li>
+                  <a class="nav-link active" aria-current="page" href="#" routerLink="Register"><button type="button" class="btn" >انشاء حساب </button></a>
+                </li>
+              </ul>
+            </li>
+            <p class="p-2 fs-6 text-center text-light ">حسابى</p>
+            <i class="fas fa-user-alt mt-2 fs-5 text-light me-2 "></i>
+            </div>
+          </ng-template>
+
+          <ng-template #LoginProduct>
+            <!-- <a class="nav-link" href="#"  routerLink="/Product/ProductDetails"><a class="text-decoration-none mybtnRegister"> منتجاتنا</a></a> -->
+          </ng-template>  
+          <ng-template #Login>
+          <!-- <a class="nav-link float-left" href="#"><button type="button" class="btn mybtnRegister" routerLink="/Product/ProductDetails"> منتجاتنا</button></a> -->
+             <div class="d-flex rounded-pill justify-content-center pt-2 ps-3" style="width:150px; background-color: #57253c;">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mt-1 me-1" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li class="mt-2"><button class="dropdown-item btn mybtnLogout fs-6 text-center"  routerLink="MyProfile/Profile">صفحتى</button>
+                  </li>
+                  <li>
+                    <button  type="button" class=" dropdown-item nav-link active bg-white fs-6 btn mybtnLogout text-center" style="color: #9c627d;" (click)="Logout()" >تسجيل خروج
+                      <i class="fas fa-sign-out-alt mx-2 mb-1"></i></button>
+                  </li>
+                </ul>
+              </li>
+              <p class="p-2 fs-6 text-center text-light ">{{userInfo.userName}}</p>
+              <i class="fas fa-user-alt mt-2 fs-5 text-light me-2 "></i>
+             </div>
+          </ng-template>
+
+          <!-- <div *ngIf="!isLoggedIn(); then  log"></div>
+          <ng-template #log>
+            <a class="nav-link active" aria-current="page" href="#" routerLink="Register"><button type="button" class="btn mybtnRegister" >انشاء حساب </button></a>
+          </ng-template> -->
+        </div>
+      <!-- </div> -->
+  </div>
+</nav>
+>>>>>>> 0a4e484a2064b8d1efe80949a09745de97050cd1
