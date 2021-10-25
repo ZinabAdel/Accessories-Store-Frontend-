@@ -1,31 +1,77 @@
-<div class="card shadow-lg mb-5 mt-3 mt-5 mx-auto" style="max-width: 640px; height: 50%;">
-  <div class="row g-0 d-flex align-items-center">
-    <div class="col-md-8">
-      <div class="card-body text-center ">
-        <h5 class="card-title"> {{productid.productName}}</h5>
-        <p class="card-text">{{productid.productName}}</p>
-        <p class="card-text"><small class="text-muted"></small></p>
-        <button class="btn btn-outline-dark float-start" (click)="AddToCart()"><i class="fas fa-shopping-cart"></i></button>
-        <a href="#" class="btn myDetails me-1" routerLink="#"> </a>
+<div class="container-fluid">
+  <div class="card shadow-lg mb-5 mt-3 mt-5 mx-auto" style="max-width: 640px; height: 50%;">
+    <div class="row g-0 d-flex align-items-center">
+      <div class="col-md-8 p-0 m-0">
+        <div class="card-body m-0 p-0 me-4 ">
+          <h5 class="card-title"> {{productid.productName}}</h5>
+          <p class="card-text">{{productid.priceSilver}} ج</p>
+          <span *ngIf="isRing" class="mt-5">
+              <span class="d-flex justify-content-center mb-2">
+                <label class="form-label fw-bold">إدخل حجم خاتمك</label>
+                <input type="number" class="form-control me-3 w-25">
+              </span>
+            <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
+          </span>
+          <button class="btn btn-outline-dark float-start mx-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fas fa-shopping-cart"></i></button>
 
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 float-start">
-      <img [src]="createImgPath(productid.productImage)" class="img-fluid rounded-start bord " style="height:250px;"
-        alt="...">
-        <p class="card-text">{{productid.priceSilver}} ج</p>
-        <p class="card-text mb-5"><small class="text-muted"></small></p>
-        <span *ngIf="isRing" class="mt-5">
-            <span class="d-flex justify-content-center mb-2">
-              <label class="form-label fw-bold">إدخل حجم خاتمك</label>
-              <input type="number" class="form-control me-3 w-25">
-            </span>
-          <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
-        </span>
+      <div class="col-md-4 float-start">
+        <img [src]="createImgPath(productid.productImage)" class="img-fluid rounded-start bord " style="height:250px;"
+          alt="...">
+
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 text-center float-start" >
-      <img [src]="createImgPath(productid.productImage)" class="img-fluid rounded-start bord " style="height:250px;" alt="...">
-    </div>
   </div>
-<!-- </div> -->
+
+</div>
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">طلب الصنف</h5>
+          <button type="button"  class="btn fs-3"  data-bs-dismiss="modal"><li class="fa fa-times text-dark" ></li></button>
+
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="OrderNowForm" (ngSubmit)="onSubmit()" >
+                <div class="mb-4">
+                    <label class="form-label fw-bold mt-5"> الصنف</label>
+                    <h1 type="text" class="form-control" Course formControlName="productName"  id="form2Example17"  class="form-control form-control-lg" required>{{productid.productName}}</h1>
+                </div>
+                <div class="mb-4 text-center">
+                  <h3 class="form-label  mt-5 mb-4"> المنتج</h3>
+                  <img type="text"   formControlName="productImage" [src]="createImgPath(productid.productImage)" id="form2Example17"   required>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold mt-5"> رقم التليفون</label>
+                <input type="text" class="form-control"  formControlName="phoneNumber" value="" id="form2Example17"  class="form-control form-control-lg" required>
+            </div>
+
+
+                <div *ngIf="idClicked">
+                    <div *ngIf="isAddOder then success else wrong"></div>
+                        <ng-template #success>
+                            <div class="alert alert-success" role="alert">
+                                تم الأضافه بنجاح
+                            </div>
+                        </ng-template>
+                        <ng-template #wrong>
+                            <div class="alert alert-warning" role="alert">
+                            حدث خطأ بالأضافه
+                            </div>
+                        </ng-template>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn text-light" style="background-color:#462c38 ;" type="submit" (click)="AddOrder()"> اطلب الان </button>
+        </div>
+        </div>
+    </div>
+    </div>

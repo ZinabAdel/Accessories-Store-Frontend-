@@ -11,9 +11,9 @@ import { AccountUserComponent } from 'src/app/Admin/account-user/account-user.co
 
 
 const routes: Routes = [
-  {path: 'Profile', component: MYProfileComponent},
-  {path: 'UpdatePassword', component: ChangePasswordComponent},
-  {path: 'Users', component: AccountUserComponent},
+  {path: 'Profile', component: MYProfileComponent ,data: { footer: true, header: true }},
+  {path: 'UpdatePassword', component: ChangePasswordComponent , data: { footer: true, header: true }},
+  {path: 'Users', component: AccountUserComponent ,data: { footer: true, header: true }},
 
 
 ];

@@ -6,4 +6,5 @@ export interface IProduct {
    subCategoryID: number;
    priceSilver: string;
    priceGold: string;
+
 }
