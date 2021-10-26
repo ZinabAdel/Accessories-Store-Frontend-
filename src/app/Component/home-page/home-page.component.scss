@@ -1,13 +1,17 @@
 .myCarousel{
-    background-image: url(../../../assets/background1.jpg);
+    // background-image: url(../../../assets/background1.jpg);
+    background-color: rgb(240, 238, 238);
     background-size: cover;
 }
 .myCard{
     width: 90%;
 }
+.myTitel{
+    text-shadow: 2px 2px 5px #106e6e ;
+}
 .myCardProduct{
     // box-shadow: 1px 1px 3px 3px #d63384;
-    box-shadow: 0 4px 8px 0 #dd8db5, 0 6px 20px 0 #db87b1;
+    box-shadow: 0 1px 2px 0 #6bcccc , 0 1px 5px 0 #4dacac ;
 }
 .myDataOfAbout{
     background-color: rgb(241, 240, 240);
@@ -41,8 +45,11 @@ img{
     color: white;
 }
 .myDetails{
-    background: #e6a2c3;
+    background: #106e6e ;
 }
 .myBtnCat{
-    background-color: #ebb0ce;
+    background-color: #cd9575;
+}
+.myArrow{
+    background-color: #106e6e ;
 }
