@@ -48,7 +48,7 @@
                         <!-- <label for="floatingSelect">اختار المنتج</label> -->
                     </div>
                 </div>
-                <button type="submit" (click)="addNewProduct()" class="btn mb-5 px-5 py-2 myBtn">حفظ</button>
+                <button type="submit" (click)="addNewProduct()" class="btn mb-5 px-5 py-2">حفظ</button>
                 <div *ngIf="idClicked">
                     <div *ngIf="isAddProduct then success else wrong"></div>
                         <ng-template #success>

@@ -1,31 +1,30 @@
 <section>
-  <div class="container py-5 h-100" >
-    <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="container py-5" >
+    <div class="row d-flex justify-content-center align-items-center">
       <div class="col col-xl-10">
-        <div class="card  shadow-lg" style=" border-radius: 50px;">
+        <div class="card w-75 mx-auto shadow-lg" style=" border-radius: 50px;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block" >
               <img
                 src="assets/pexels-ka.jpg"
                 alt="login form"
-                class="img-fluid h-100"
+                class="img-fluid h-50"
                 style=" border-top-right-radius: 50px; border-bottom-right-radius: 50px;"
               />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center" style="background-color: rgb(245, 245, 245);  border-top-left-radius: 50px; border-bottom-left-radius: 50px;">
-              <div class="card-body p-4 p-lg-5 text-black">
+              <div class="card-body text-black">
 
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
-
                   <div class="col-md-6 col-lg-5 d-none d-md-block mx-auto  d-block">
                     <img
                       src="../../../assets/logoLogin.jpg"
                       alt="login form"
-                      class="img-fluid h-50"
+                      class="img-fluid"
                     />
                   </div>
 
-                  <h5 class="fw-normal mb-3 pb-3 text-center fs-1 " style="letter-spacing: 1px;line-height:90px;">تسجيل دخول </h5>
+                  <h5 class="fw-normal text-center fs-1 " style="letter-spacing: 1px;">تسجيل دخول </h5>
 
                   <div class="form-outline mb-4">
                     <label class="form-label fs-4 float-end" for="form2Example17"> اسم المستخدم</label>
@@ -35,7 +34,7 @@
                   </div>
                   </div>
 
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-3">
                     <label class="form-label fs-4 float-end" for="form2Example27" >كلمة المرور</label>
                     <input type="password" id="form2Example27" [class.is-invalid]="passwordHash.invalid && passwordHash.touched"  [class.is-valid]="passwordHash.valid "  formControlName="passwordHash" class="form-control form-control-lg" required />
                     <div *ngIf="passwordHash.invalid && passwordHash.touched">
@@ -44,11 +43,11 @@
                   </div>
                   </div>
 
-                  <div class="pt-1 mb-4 text-center">
-                    <button class="btn myLogin" type="submit" [disabled]="loginForm.invalid">تسجيل دخول</button>
+                  <div class="pt-1 mb-2 text-center">
+                    <button class="btn allbutton" type="submit" [disabled]="loginForm.invalid">تسجيل دخول</button>
                   </div>
 
-                  <p class="mb-5 pb-lg-2 text-center " >ليس لدى حساب  <a href="Register" style="color: #393f81;">إنشاء هنا</a></p>
+                  <p class="text-center " >ليس لدى حساب  <a href="Register" style="color: #393f81;">إنشاء هنا</a></p>
                 </form>
 
               </div>

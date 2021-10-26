@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark px-4 py-0 myNav" id="navbar-example2">
   <div class="container-fluid">
     <a class="navbar-brand d-flex" routerLink="HomePage">
@@ -123,4 +124,117 @@
   </ng-template>
 
 
+=======
+<nav class="navbar navbar-expand-lg navbar-dark px-4 p-0 m-0 myNav" id="navbar-example2">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex d-none d-sm-block" routerLink="HomePage">
+      <div class="">
+        <img src="../../../assets/webBackGround.jpg" alt="error" style="max-width: 100%; height: auto"
+          class="rounded-pill img-fluid" />
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div>
+      <p class="text-light fs-3 me-4 mt-2 text-center" style="font-family: Arial, Helvetica, sans-serif">
+        <em>قلاوون</em>
+      </p>
+    </div>
+
+    <div class="collapse navbar-collapse mb-1" id="navbarSupportedContent">
+      <div *ngIf="isLoggedIn() && role() === 'Client'; then Client"></div>
+      <div *ngIf="isLoggedIn() && role() === 'Admin'; then Admin"></div>
+    </div>
+  </div>
+
+  <div class="collapse navbar-collapse mb-1" id="navbarSupportedContent">
+    <p class="float-left" *ngIf="isLoggedIn(); then Login; else NotLogin"></p>
+  </div>
+  <div class="navbar-nav me-auto">
+    <ng-template #Client>
+      <a class="nav-link active text-center" aria-current="page" href="#" routerLink="Product/ChooseCategory"><a
+          class="text-decoration-none text-light">اختار الفئة</a></a>
+      <a class="nav-link active text-center" aria-current="page" href="#" routerLink="Feedback"><a
+          class="text-decoration-none text-light">رأيك يهمنا</a></a>
+    </ng-template>
+
+    <ng-template #Admin>
+      <li class="nav-item dropdown text-decoration-none text-center">
+        <h6 class="nav-link dropdown-toggle text-light p-0 mb-4 me-4" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          الأضافات
+        </h6>
+        <ul class="dropdown-menu text-center shadow-lg" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item" href="#"><a class="text-decoration-none text-dark" routerLink="/Admin/AddProduct">
+                إضافة منتجات</a></a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><a class="text-decoration-none text-dark"
+                routerLink="/Admin/AddCategory">إضافة أصناف
+              </a></a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><a class="text-decoration-none text-dark"
+                routerLink="/Admin/AddSubCategory">إضافة أنواع</a></a>
+          </li>
+        </ul>
+      </li>
+      <a class="nav-link text-center" href="#"><a class="text-decoration-none text-light" routerLink="/Orders">الطلبات</a></a>
+      <a class="nav-link text-center" href="#"><a class="text-decoration-none text-light" routerLink="/ShowFeedback">الأراء</a></a>
+    </ng-template>
+
+    <ng-template #NotLogin>
+      <div class="d-flex rounded-pill justify-content-center ps-1 pt-1 px-1 "
+        style="background-color: #052b2b; ">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: -26px; margin-left: -10px; height: 15px;">
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="">
+              <a class="nav-link active" aria-current="page" href="#" routerLink="Login"><button type="button"
+                  class="btn">تسجيل الدخول</button></a>
+            </li>
+            <li>
+              <a class="nav-link active" aria-current="page" href="#" routerLink="Register"><button type="button"
+                  class="btn">انشاء حساب</button></a>
+            </li>
+          </ul>
+        </li>
+        <p class="fs-6 text-center text-light" style="height: 15px;">حسابى</p>
+        <i class="fas fa-user-alt fs-5 text-light rounded-circle me-1 px-1 py-1 h-100"
+          style=" background-color: rgb(170, 168, 168)"></i>
+      </div>
+    </ng-template>
+
+    <ng-template #Login>
+      <div class="d-flex rounded-pill justify-content-center ps-1 pt-1"
+      style="background-color: #052b2b; ">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: -26px; margin-left: -10px; height: 15px;">
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li class="mt-2">
+            <button class="dropdown-item btn fs-6 text-center" routerLink="MyProfile/Profile">
+              صفحتى
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item fs-6 btn text-center" (click)="Logout()">
+              تسجيل خروج <i class="fas fa-sign-out-alt mx-2 mb-1"></i>
+            </button>
+          </li>
+        </ul>
+      </li>
+      <p class="fs-6 text-center text-light" style="height: 15px;">{{ userInfo.userName }}</p>
+      <i class="fas fa-user-alt fs-5 text-light rounded-circle me-1 px-1 py-1 h-100"
+        style=" background-color: rgb(170, 168, 168)"></i>
+      </div>
+    </ng-template>
+  </div>
+>>>>>>> b2d38802c8544a4fcc0ba7c806d5edcdba5da39d
 </nav>

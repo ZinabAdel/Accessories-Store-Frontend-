@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -13,8 +12,7 @@ import { LoginComponent } from './User/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
-import { ShowFeedbackComponent } from './Admin/show-feedback/show-feedback.component';
-import { OrdersComponent } from './Admin/orders/orders.component';
+
 
 @NgModule({
   declarations: [
@@ -27,8 +25,6 @@ import { OrdersComponent } from './Admin/orders/orders.component';
     LoginComponent,
     PageNotFoundComponent,
     FeedbackComponent,
-    ShowFeedbackComponent,
-    OrdersComponent
   ],
   imports: [
     BrowserModule,
