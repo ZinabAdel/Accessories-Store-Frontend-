@@ -35,8 +35,7 @@ export class AddProductComponent implements OnInit {
       productImage:['',[Validators.required]],
       categoryID:['',[Validators.required ]],
       subCategoryID:['',[Validators.required] ],
-      priceSilver:['',[Validators.required ]],
-      priceGold:['',[Validators.required ]]
+      price:['',[Validators.required ]],
     })
     this.getProduct()
   }
@@ -48,7 +47,7 @@ export class AddProductComponent implements OnInit {
         this.Categoies = data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
   }
 
@@ -59,7 +58,7 @@ export class AddProductComponent implements OnInit {
         this.subCategoies = data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
   }
 
@@ -75,12 +74,10 @@ export class AddProductComponent implements OnInit {
   get subCategoryID(){
   return this.addProductForm.get('subCategoryID');
   }
-  get priceSilver(){
-    return this.addProductForm.get('priceSilver');
+  get price(){
+    return this.addProductForm.get('price');
   }
-  get priceGold(){
-    return this.addProductForm.get('priceGold');
-  }
+
   onSubmit(){
     console.log("hello",this.addProductForm.value)
   const user = this.addProductForm.value;
@@ -88,7 +85,7 @@ export class AddProductComponent implements OnInit {
   addNewProduct(){
     this.idClicked = true
     if(this.addProductForm.value.productName != '' && this.addProductForm.value.productImage != '' &&
-    this.addProductForm.value.priceSilver != '' && this.addProductForm.value.priceGold != '' && 
+    this.addProductForm.value.priceSilver != '' && this.addProductForm.value.priceGold != '' &&
     this.addProductForm.value.subCategoryID != '' && this.addProductForm.value.categoryID != ''){
     this.prodService.AddNewProduct(this.addProductForm.value).subscribe(
       sucess=>{
@@ -107,9 +104,9 @@ export class AddProductComponent implements OnInit {
         this.products=data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
-  } 
+  }
   deleteProduct(id:number){
     this.prodService.removeProduct(id).subscribe(
       sucess=>{
@@ -126,8 +123,7 @@ export class AddProductComponent implements OnInit {
     this.objectToUpdate.id = prodId
     this.objectToUpdate.productImage = this.addProductForm.value.productImage
     this.objectToUpdate.productName = this.addProductForm.value.productName
-    this.objectToUpdate.priceGold = this.addProductForm.value.priceGold
-    this.objectToUpdate.priceSilver = this.addProductForm.value.priceSilver
+    this.objectToUpdate.price = this.addProductForm.value.price
     this.objectToUpdate.categoryID = this.addProductForm.value.categoryID
     this.objectToUpdate.subCategoryID = this.addProductForm.value.subCategoryID
     this.prodService.updateProduct(prodId,this.objectToUpdate).subscribe(data=>{
