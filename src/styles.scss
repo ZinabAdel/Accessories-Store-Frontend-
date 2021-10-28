@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
-<<<<<<< HEAD
 * {
   font-family: 'Changa', sans-serif;
   // font-family: 'Irish Grover', cursive;
@@ -10,17 +9,17 @@
   font-family: 'Reem Kufi', sans-serif;
   // font-family: 'Tangerine', cursive;
   // font-family: 'Vibes', cursive;
-=======
-
+}
 button{
     background-color: #065757 ;
     color: white;
 }
 .allbutton{
-  background-color: #065757 ;
+  // background-color: #065757 ;
+  background-color: #034444 ;
+
   color: white;
 }
 .allTextShadow{
   text-shadow: 2px 2px 5px #a4a7a7;
->>>>>>> b2d38802c8544a4fcc0ba7c806d5edcdba5da39d
 }

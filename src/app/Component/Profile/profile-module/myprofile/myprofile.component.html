@@ -1,44 +1,45 @@
 <div class="container-fluid">
- <div class="row">
-   <div class="col-sm-6 col-md-3 p-4" style="background-color: rgb(204, 203, 203); min-height: 100vh;">
-    <img class="img-fluid w-100 h-auto mt-5 rounded-circle" src="assets/pexels-artem.jpg">
-    <div class="container-fluid mx-5 mb-4 mt-4 d-inline-flex ">
-      <h2 class="mb-4 mx-5 mt-3 ">الاسم: </h2>
-      <h1 class="text-dark mt-3 fs-2" >{{userInfo.userName}}</h1>
+  <div class="row">
+    <div class="col-sm-6 col-md-3 p-4" style="background-color: rgb(204, 203, 203); min-height: 100vh;">
+      <img class="img-fluid w-100 h-auto mt-5 rounded-circle" src="assets/pexels-artem.jpg">
+
+
+      <div class="container-fluid d-inline-flex ">
+        <h2 class="mb-4 mx-auto">الاسم: </h2>
+        <h1 class="text-dark mx-auto fs-2">{{userInfo.userName}}</h1>
+      </div>
+      <div *ngIf="!hide then open"></div>
+
+      <ng-template #open>
+        <div class="container-fluid ">
+          <div class="container-fluid mx-5 mb-4 mt-4">
+            <h2 class="mb-4">الاسم</h2>
+            <input class="text-dark mt-3 fs-5 form-control-md" type="text" [value]="userInfo.userName" #userName>
+          </div>
+          <div class="container-fluid me-5 mb-4 mt-4">
+            <input class=" mt-3 fs-5 form-control-md" [value]="userInfo.email" #email>
+          </div>
+          <div class="container-fluid me-5 mb-4 mt-4">
+            <input type="hidden" class="text-dark mt-3 fs-5 form-control-md" [value]="userInfo.userName" #tel>
+          </div>
+        </div>
+
+        <div class="container-fluid text-center ">
+          <button class=" btn mb-5  fs-6 allbutton  text-center "
+            (click)="UpdateUserInfo(userName.value,email.value,tel.value)"> تغيير البيانات</button>
+
+        </div>
+      </ng-template>
+
+
+      <button class=" btn  fs-6 allbutton text-center" (click)="change()">تغير كلمة المرور</button>
+       <a class=" btn  fs-6 allbutton text-light text-center float-start mb-5 " (click)="openedit()">
+        {{text}}
+        <li class="{{icon}}"></li>
+      </a>
     </div>
-    <div *ngIf="!hide then open"></div>
-    <button class=" btn  fs-6 mybtnLogout text-center me-5 mb-4 " (click)="openedit()">
-    تعديل البيانات
-    </button>
-    <ng-template #open>
-      <div class="container-fluid ">
-        <div class="container-fluid mx-5 mb-4 mt-4">
-          <h2 class="mb-4">الاسم</h2>
-          <input class="text-dark mt-3 fs-5 form-control-md" type="text" [value]="userInfo.userName" #userName>
-        </div>
-        <div class="container-fluid me-5 mb-4 mt-4">
-          <input class="text-dark mt-3 fs-5 form-control-md" [value]="userInfo.email" #email>
-        </div>
-        <div class="container-fluid me-5 mb-4 mt-4">
-          <input class="text-dark mt-3 fs-5 form-control-md" [value]="userInfo.userName" #tel>
-
-        </div>
-        </div>
-
-        <div class="container-fluid">
-        <button class=" btn  fs-6 mybtnLogout  text-center me-5 mb-4 mt-4"  (click)="UpdateUserInfo(userName.value,email.value,tel.value)"> تغيير البيانات</button>
-
-          <h4 class=" btn  fs-6 mybtnLogout text-center me-5 mb-4  mt-4"  (click)="change()">تغير كلمة المرور</h4>
-
-        </div>
-
-
-    </ng-template>
-   </div>
-   <div class="col-sm-5  col-md-9 p-4">
-     <app-client-order></app-client-order>
-   </div>
- </div>
+    <div class="col-sm-5  col-md-9 p-4">
+      <app-client-order></app-client-order>
+    </div>
+  </div>
 </div>
-
-

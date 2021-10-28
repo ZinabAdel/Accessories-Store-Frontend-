@@ -5,6 +5,21 @@
         <div class="card-body m-0 p-0 me-4 ">
           <h5 class="card-title"> {{productid.productName}}</h5>
           <p class="card-text">{{productid.price}} ج</p>
+
+
+          <div class="collapse navbar-collapse mb-1" id="navbarSupportedContent">
+            <p class="float-left" *ngIf="isLoggedIn(); then Login; else NotLogin"></p>
+          </div>
+
+          <ng-template #NotLogin>
+
+          </ng-template>
+
+          <ng-template #Login>
+            <button class="btn btn-outline-dark float-start mx-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fas fa-shopping-cart"></i></button>
+
+          </ng-template>
+
           <span *ngIf="isRing" class="mt-5">
               <span class="d-flex justify-content-center mb-2">
                 <label class="form-label fw-bold">إدخل حجم خاتمك</label>
@@ -12,7 +27,6 @@
               </span>
             <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
           </span>
-          <button class="btn btn-outline-dark float-start mx-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fas fa-shopping-cart"></i></button>
           <button class="btn btn-outline-dark float-start mx-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Back()" >رجوع</button>
 
         </div>
@@ -85,3 +99,4 @@
         </div>
     </div>
     </div>
+

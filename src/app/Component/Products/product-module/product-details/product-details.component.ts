@@ -108,4 +108,7 @@ export class ProductDetailsComponent implements OnInit {
   Back(): void {
  this.location.back();
  }
+ isLoggedIn(): any{
+  return this.authServices.isLoggedIn();
+ }
 }
