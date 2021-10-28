@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
         this.subCategoies=data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
   }
 

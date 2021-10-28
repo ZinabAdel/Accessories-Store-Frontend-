@@ -13,28 +13,17 @@
                 <div class="mb-2">
                     <label class="form-label fw-bold">سعره للفضى</label>
                     <div class="input-group" >
-                        <input type="text" class="form-control"  [class.is-invalid]="priceSilver.invalid && priceSilver.touched" [class.is-valid]="priceSilver.valid" formControlName="priceSilver" required>
+                        <input type="text" class="form-control"  [class.is-invalid]="price.invalid && price.touched" [class.is-valid]="price.valid" formControlName="price" required>
                         <div class="input-group-append">
                         <span class="input-group-text">ج</span>
                         </div>
                     </div>
-                    <div *ngIf="priceSilver.invalid && priceSilver.touched">
-                        <small class="text-danger float-end" *ngIf="priceSilver.errors.required">السعر مطلوب</small>
+                    <div *ngIf="price.invalid && price.touched">
+                        <small class="text-danger float-end" *ngIf="price.errors.required">السعر مطلوب</small>
                     </div>
                 </div>
-                <div class="mb-2">
-                    <label class="form-label fw-bold">سعره للذهبى</label>
-                    <div class="input-group" >
-                        <input type="text" class="form-control" [class.is-invalid]="priceGold.invalid && priceGold.touched" [class.is-valid]="priceGold.valid" formControlName="priceGold" required>
-                        <div class="input-group-append">
-                        <span class="input-group-text">ج</span>
-                        </div>
-                    </div>
-                    <div *ngIf="priceGold.invalid && priceGold.touched">
-                        <small class="text-danger float-end" *ngIf="priceGold.errors.required">السعر مطلوب</small>
-                    </div>
-                </div>
-                <div class="mb-2">
+
+                <div class="mb-4">
                     <label class="form-label fw-bold">الصنف</label>
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="categoryID.invalid && categoryID.touched" [class.is-valid]="categoryID.valid" formControlName="categoryID" required>
@@ -88,8 +77,7 @@
                             <th scope="col"class="all" >#</th>
                             <th scope="col">الأسم</th>
                             <th scope="col">الصورة</th>
-                            <th scope="col">السعر الذهبى</th>
-                            <th scope="col">السعر الفضى</th>
+                            <th scope="col">السعر </th>
                             <th scope="col">الصنف</th>
                             <th scope="col">النوع</th>
                             <th scope="col"></th>
@@ -101,8 +89,7 @@
                             <th scope="row">{{i+1}}</th>
                             <td>{{product.productName}}</td>
                             <td>{{product.productImage}}</td>
-                            <td>{{product.priceSilver}} ج</td>
-                            <td>{{product.priceGold}} ج</td>
+                            <td>{{product.price} ج</td>
                             <td>
                                 <div *ngFor="let cat of Categoies , let i=index" >
                                     <div *ngIf="cat.id == product.categoryID">
@@ -150,27 +137,16 @@
                     <div class="mb-4">
                         <label class="form-label fw-bold">سعره للفضى</label>
                         <div class="input-group" >
-                            <input type="text" class="form-control"  [class.is-invalid]="priceSilver.invalid && priceSilver.touched" [class.is-valid]="priceSilver.valid" formControlName="priceSilver" required>
+                            <input type="text" class="form-control"  [class.is-invalid]="price.invalid && price.touched" [class.is-valid]="price.valid" formControlName="price" required>
                             <div class="input-group-append">
                             <span class="input-group-text">ج</span>
                             </div>
                         </div>
-                        <div *ngIf="priceSilver.invalid && priceSilver.touched">
-                            <small class="text-danger float-end" *ngIf="priceSilver.errors.required">السعر مطلوب</small>
+                        <div *ngIf="price.invalid && price.touched">
+                            <small class="text-danger float-end" *ngIf="price.errors.required">السعر مطلوب</small>
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label fw-bold">سعره للذهبى</label>
-                        <div class="input-group" >
-                            <input type="text" class="form-control" [class.is-invalid]="priceGold.invalid && priceGold.touched" [class.is-valid]="priceGold.valid" formControlName="priceGold" required>
-                            <div class="input-group-append">
-                            <span class="input-group-text">ج</span>
-                            </div>
-                        </div>
-                        <div *ngIf="priceGold.invalid && priceGold.touched">
-                            <small class="text-danger float-end" *ngIf="priceGold.errors.required">السعر مطلوب</small>
-                        </div>
-                    </div>
+
                     <div class="mb-4">
                         <label class="form-label fw-bold">الصنف</label>
                         <div class="form-floating">

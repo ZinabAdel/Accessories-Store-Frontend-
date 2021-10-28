@@ -4,6 +4,6 @@ export interface IProduct {
    productImage: string;
    categoryID: number;
    subCategoryID: number;
-   priceSilver: string;
-   priceGold: string;
+   price: number;
+
 }

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-lg-8  mx-auto">
+      <div class="card text-center mb-3" *ngFor="let order of clientOrder">
+        <div class="card-body shadow-lg" >
+         <div class="clearfix">
+          <div class="">
+            <p class="card-text float-start w-50"><img class="img-fluid" [src]="createImgPath(order.productImage)"></p>
+          </div>
+            <div class=" float-lg-end text-center pe-lg-5 ">
+              <p class="card-text"><span class="h4">المنتج: </span>{{order.productName}}</p>
+              <p class="card-text"><span class="h4">السعر: </span>{{order.price}}</p>
+              <p class="card-text"><span class="h4">الرقم: </span>{{order.phoneNumber}}</p>
+              <p class="card-text">{{order.mSG}}</p>
+              <a href="#" class="btn text-light allbutton" >إلغاء الأوردر</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-muted allbutton " >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

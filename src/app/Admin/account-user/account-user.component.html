@@ -1,0 +1,22 @@
+<h1 class="text-center mt-5 mb-5 fs-3"> العملاء</h1>
+<table class="table table-bordered border-dark w-75 mt-5 mb-5 text-center mx-auto">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">الاسم</th>
+      <th scope="col">الايميل</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of allAccount ; index as i; first as isFirst">
+    <tr>
+      <th scope="row">{{i+1}}</th>
+      {{user.userName}}
+      <th>
+        {{user.email}} <span *ngIf="isFirst">{{user.email}}</span>
+
+      </th>
+
+    </tr>
+
+  </tbody>
+</table>

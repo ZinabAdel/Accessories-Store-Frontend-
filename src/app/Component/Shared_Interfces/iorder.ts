@@ -3,8 +3,9 @@ export interface IOrder {
    productName: string;
    productImage: string;
    price: number;
-   ProductID: number;
+   productId: number;
    phoneNumber:string;
    finish:number;
-   ClientID:string
+   mSG: string;
+   clientID?:string;
 }

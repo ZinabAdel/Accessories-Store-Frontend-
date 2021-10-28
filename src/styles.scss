@@ -1,12 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
-
+* {
+  font-family: 'Changa', sans-serif;
+  // font-family: 'Irish Grover', cursive;
+  font-family: 'Lemonada', cursive;
+  font-family: 'Mada', sans-serif;
+  font-family: 'Qahiri', sans-serif;
+  font-family: 'Reem Kufi', sans-serif;
+  // font-family: 'Tangerine', cursive;
+  // font-family: 'Vibes', cursive;
+}
 button{
     background-color: #065757 ;
     color: white;
 }
 .allbutton{
-  background-color: #065757 ;
+  // background-color: #065757 ;
+  background-color: #034444 ;
+
   color: white;
 }
 .allTextShadow{

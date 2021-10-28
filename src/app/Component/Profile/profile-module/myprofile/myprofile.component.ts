@@ -13,6 +13,8 @@ export class MYProfileComponent implements OnInit {
   userInfo: ILogin;
   stdID: string = this.authServices.getUserId();
   hide=true;
+  text : string ="تغيير البيانات";
+  icon: string = "fa fa-arrow-down";
   constructor(private authServices: AuthenticationService , private acountServices: AccountService , private router: Router) { }
 
   ngOnInit(): void {
@@ -21,6 +23,9 @@ export class MYProfileComponent implements OnInit {
   }
   openedit(): any{
     this.hide=!this.hide
+    this.text=this.hide? "تغيير البيانات":" الغاء"
+    this.icon=this.hide? "fa fa-arrow-down":" fa fa-arrow-up"
+
   }
   getClientInformation(): void{
     this.stdID = this.authServices.getUserId();
@@ -44,6 +49,7 @@ export class MYProfileComponent implements OnInit {
           console.log("test",testObj)
           // this.alertFlag=true;
           window.location.reload();
+          this.openedit();
         }
       )
 

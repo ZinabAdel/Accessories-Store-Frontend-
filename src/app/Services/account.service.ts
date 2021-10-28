@@ -16,7 +16,11 @@ export class AccountService {
   stID: string;
 urlUpdate:"http://localhost:9748/api/Account/updatePassword/"
   constructor(private http: HttpClient, private  token: AuthenticationService) { }
-
+getAllAccount(): Observable<ILogin[]>{
+  return this.http.get<ILogin[]>(`${environment.API_URL}/Account`).pipe(catchError((err) => {
+    return throwError(err.message || 'error');
+  }));
+}
   getClientName(id: string): any{
     return this.http.get<ILogin>(`${environment.API_URL}/Account/${id}`).pipe(catchError((err) => {
       return throwError(err.message || 'error');

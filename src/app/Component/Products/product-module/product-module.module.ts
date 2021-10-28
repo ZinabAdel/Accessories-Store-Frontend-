@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: 'ProductDetails/:id', component: ProductDetailsComponent},
+
   {path: 'AllProduct/:id', component: ProductComponent},
 ];
 @NgModule({

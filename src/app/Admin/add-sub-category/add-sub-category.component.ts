@@ -56,9 +56,9 @@ export class AddSubCategoryComponent implements OnInit {
         this.subCategoies=data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
-  } 
+  }
 
   deleteSubCategory(id:number){
     this.SubCatService.removeSubCategory(id).subscribe(data=>{
