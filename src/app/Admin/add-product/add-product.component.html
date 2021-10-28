@@ -1,17 +1,16 @@
-<div class="container-fluid myProduct p-5">
+<div class="container-fluid myProduct pt-3">
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-6 mx-auto">
             <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" >
-                <p class="h3 fs-2 text-center myAddText">أضف منتج جديد</p>
-                <div class="mb-4">
-                    <label class="form-label fw-bold mt-5">اسم المنتج</label>
+                <p class="h3 text-center allTextShadow">أضف منتج جديد</p>
+                <div class="mb-2">
+                    <label class="form-label fw-bold mt-3">اسم المنتج</label>
                     <input type="text" class="form-control" id="form2Example17" [class.is-invalid]="productName.invalid && productName.touched" [class.is-valid]="productName.valid" formControlName="productName" class="form-control form-control-lg" required>
                     <div *ngIf="productName.invalid && productName.touched">
                         <small class="text-danger float-end" *ngIf="productName.errors.required">الاسم مطلوب</small>
                     </div>
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                     <label class="form-label fw-bold">سعره للفضى</label>
                     <div class="input-group" >
                         <input type="text" class="form-control"  [class.is-invalid]="priceSilver.invalid && priceSilver.touched" [class.is-valid]="priceSilver.valid" formControlName="priceSilver" required>
@@ -23,7 +22,7 @@
                         <small class="text-danger float-end" *ngIf="priceSilver.errors.required">السعر مطلوب</small>
                     </div>
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                     <label class="form-label fw-bold">سعره للذهبى</label>
                     <div class="input-group" >
                         <input type="text" class="form-control" [class.is-invalid]="priceGold.invalid && priceGold.touched" [class.is-valid]="priceGold.valid" formControlName="priceGold" required>
@@ -35,7 +34,7 @@
                         <small class="text-danger float-end" *ngIf="priceGold.errors.required">السعر مطلوب</small>
                     </div>
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                     <label class="form-label fw-bold">الصنف</label>
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="categoryID.invalid && categoryID.touched" [class.is-valid]="categoryID.valid" formControlName="categoryID" required>
@@ -47,7 +46,7 @@
                         <!-- <label for="floatingSelect">النوع</label> -->
                     </div>
                 </div>
-                <div class="mb-4">
+                <div class="mb-2">
                     <label class="form-label fw-bold">النوع</label>
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example"  [class.is-invalid]="subCategoryID.invalid && subCategoryID.touched" [class.is-valid]="subCategoryID.valid" formControlName="subCategoryID" required>
@@ -59,7 +58,7 @@
                         <!-- <label for="floatingSelect">اختار المنتج</label> -->
                     </div>
                 </div>
-                <button type="submit" (click)="addNewProduct()" class="btn mb-5 px-5 py-2">حفظ</button>
+                <button type="submit" (click)="addNewProduct()" class="btn mb-5 px-5 py-2 allbutton">حفظ</button>
                 <div *ngIf="idClicked">
                     <div *ngIf="isAddProduct then success else wrong"></div>
                         <ng-template #success>
@@ -73,16 +72,15 @@
                             </div>
                         </ng-template>
                 </div>
-            </form>  
+            </form>
             <hr>
         </div>
-        <div class="col-md-3"></div>
     </div>
 
     <div class="row">
         <div class="col-md-2"></div>
             <div class="col-md-8">
-                <p class="h3 fs-2 text-center myAddText my-4">المنتجات الموجودة</p>
+                <p class="h3 fs-2 text-center allTextShadow my-4">المنتجات الموجودة</p>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover border border-dark text-center">
                         <thead >
@@ -120,7 +118,7 @@
                                 </div>
                             </td>
                             <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">مسح</button></td>
-                            <td>  
+                            <td>
                                 <!-- Button trigger modal -->
                                 <button type="button" (click)="getToupdateProduct(product)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> تعديل </button>
                             </td>
@@ -195,7 +193,7 @@
                             </div>
                         </div>
                     </div>
-                </form>   
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">قفل</button>

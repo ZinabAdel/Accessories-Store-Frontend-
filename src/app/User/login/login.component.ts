@@ -38,8 +38,8 @@ return this.loginForm.get('passwordHash');
  }
  onSubmit(){
    console.log("hello")
-  const user = this.loginForm.value;
-  this.signInUser(user);
+   const user = this.loginForm.value;
+   this.signInUser(user);
  }
  get formFields(){
      return this.loginForm.controls;
@@ -83,6 +83,6 @@ return this.loginForm.get('passwordHash');
     window.location.href = '/HomePage';
   }
   ClientPage() {
-    window.location.href='/Product/ChooseCategory';
+    window.location.href = '/ChooseCategory';
   }
 }

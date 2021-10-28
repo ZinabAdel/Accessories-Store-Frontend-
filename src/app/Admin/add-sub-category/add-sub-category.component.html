@@ -1,17 +1,16 @@
-<div class="container-fluid mySubCategory p-5">
+<div class="container-fluid pt-3">
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-6 mx-auto">
             <form [formGroup]="addSubCategoryForm" (ngSubmit)="onSubmit()" >
-                <p class="h3 fs-2 text-center myAddText">أضف النوع جديد</p>
-                <div class="mb-4">
-                    <label class="form-label fw-bold mt-5">اسم النوع</label>
+                <p class="h3 text-center allTextShadow">أضف النوع جديد</p>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">اسم النوع</label>
                     <input type="text" class="form-control" id="form2Example17" [class.is-invalid]="subCategoryName.invalid && subCategoryName.touched" [class.is-valid]="subCategoryName.valid" formControlName="subCategoryName" class="form-control form-control-lg" required>
                     <div *ngIf="subCategoryName.invalid && subCategoryName.touched">
                         <small class="text-danger float-end" *ngIf="subCategoryName.errors.required">النوع مطلوب</small>
                     </div>
                 </div>
-                <button type="submit" (click)="addNewSubCategory()" class="btn mb-5 px-5 py-2 myBtn">حفظ</button>
+                <button type="submit" (click)="addNewSubCategory()" class="btn mb-5 px-5 py-2 allbutton">حفظ</button>
                 <div *ngIf="idClicked">
                     <div *ngIf="isAddSubCategory then success else wrong"></div>
                         <ng-template #success>
@@ -25,16 +24,15 @@
                             </div>
                         </ng-template>
                 </div>
-            </form>  
+            </form>
             <hr>
         </div>
-        <div class="col-md-3"></div>
     </div>
 
     <div class="row">
         <div class="col-md-4"></div>
             <div class="col-md-4">
-                <p class="h3 fs-2 text-center myAddText my-4">الأنواع الموجودة</p>
+                <p class="h3 fs-2 text-center allTextShadow my-4">الأنواع الموجودة</p>
                 <table class="table table-bordered table-hover border border-dark text-center">
                     <thead >
                     <tr class="myHeaderTabel">
@@ -49,7 +47,7 @@
                         <th scope="row">{{i+1}}</th>
                         <td>{{subCategory.subCategoryName}}</td>
                         <td><button class="btn btn-danger" (click)="deleteSubCategory(subCategory.id)">مسح</button></td>
-                        <td>  
+                        <td>
                             <!-- Button trigger modal -->
                             <button type="button" (click)="getToupdateSubCategory(subCategory)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> تعديل </button>
                         </td>
@@ -77,11 +75,11 @@
                             <small class="text-danger float-end" *ngIf="subCategoryName.errors.required">النوع مطلوب</small>
                         </div>
                     </div>
-                </form>  
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">قفل</button>
-                <button type="button" class="btn btn-primary" type="submit" (click)="updateSubCategory(objectToUpdate.id)">حفظ الغيير</button>
+                <button type="button" class="btn btn-primary allbutton" type="submit" (click)="updateSubCategory(objectToUpdate.id)">حفظ الغيير</button>
             </div>
             </div>
         </div>

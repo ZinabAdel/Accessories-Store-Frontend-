@@ -53,3 +53,11 @@ img{
 .myArrow{
     background-color: #106e6e ;
 }
+.myCat{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-image: url(../../../assets/bgChoose.jpg);
+  background-size: cover;
+  cursor: pointer;
+}

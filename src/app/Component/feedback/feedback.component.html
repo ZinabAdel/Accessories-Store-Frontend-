@@ -1,15 +1,15 @@
-<div class="container-fluid myPage p-5">
-    <p class="h3 mb-5 text-center myText">رأيك يهمنا</p>
+<div class="container-fluid pt-2">
+    <p class="h3 text-center allTextShadow">رأيك يهمنا</p>
     <div class="row">
-        <div class="col-md-8 mx-auto">            
+        <div class="col-md-6 mx-auto">
             <form action="/action_page.php" form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
-                <div class="mb-4">
-                    <label class="form-label mt-5 fs-4">الأسم :</label>
+                <div class="mb-3">
+                    <label class="form-label mt-5 fs-6">الأسم :</label>
                     <input type="text" class="form-control" id="form2Example17" formControlName="fullName" class="form-control form-control-lg" required>
                     <input type="hidden" id="form2Example17" formControlName="clientID" [value]="userInfo.id" class="form-control form-control-lg" required>
                 </div>
                 <div class="mb-3 mt-3">
-                <label for="comment" class="mb-1 fs-4">رأيك :</label>
+                <label for="comment" class="mb-1 fs-6">رأيك :</label>
                 <textarea class="form-control" rows="5" id="comment"  formControlName="clientReview" class="form-control form-control-lg" name="text" required></textarea>
                 </div>
                 <div *ngIf="isClicked">
@@ -25,8 +25,7 @@
                             </div>
                         </ng-template>
                 </div>
-                <button type="submit" class="btn myBtn">إرسال</button>
-                <!-- <button type="submit" class="btn myBtn" (click)="addNewFeedbackCategory()">إرسال</button> -->
+                <button type="submit" class="btn allbutton">إرسال</button>
             </form>
         </div>
     </div>

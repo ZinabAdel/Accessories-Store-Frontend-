@@ -1,11 +1,11 @@
-<div class="container-fluid myCategory p-5">
+<div class="container-fluid p-3">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()" >
                 <p class="h3 fs-2 text-center allTextShadow">أضف الصنف جديد</p>
-                <div class="mb-4">
-                    <label class="form-label fw-bold mt-5">اسم الصنف</label>
+                <div class="mb-2">
+                    <label class="form-label fw-bold mt-3">اسم الصنف</label>
                     <input type="text" class="form-control" id="form2Example17" [class.is-invalid]="categoryName.invalid && categoryName.touched" [class.is-valid]="categoryName.valid" formControlName="categoryName" class="form-control form-control-lg" required>
                     <div *ngIf="categoryName.invalid && categoryName.touched">
                         <small class="text-danger float-end" *ngIf="categoryName.errors.required">الصنف مطلوب</small>

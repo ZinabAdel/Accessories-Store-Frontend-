@@ -6,6 +6,7 @@ import { ICategory } from '../Shared_Interfces/ICategory';
 import { ISubCategory } from '../Shared_Interfces/ISubCategory';
 import { ProductService } from 'src/app/Services/product.service';
 import { IProduct } from '../Shared_Interfces/iproduct';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -17,15 +18,15 @@ export class HomePageComponent implements OnInit {
   isSilver = false;
   isGold = false;
   // img: string[] = [];
-  Categoies: ICategory[] =[];
-  subCategoies: ISubCategory[] =[];
+  Categoies: ICategory[] = [];
+  subCategoies: ISubCategory[] = [];
   AllProduct: IProduct[] = [];
   spasificProduct: IProduct[] = [];
-  Error :string;
-  showSizeRing: boolean = false
-  constructor(private catService:CategoryService, private subCatService:SubCategoryService,private prodServices: ProductService) {
-    // this.img = ["m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg","m3.jpeg","m1.jpeg","m2.jpeg"]
-   }
+  Error: string;
+  showSizeRing: boolean = false;
+  constructor(private catService: CategoryService, private subCatService: SubCategoryService, private prodServices: ProductService
+    ,private router: Router) {
+  }
 
   ngOnInit(): void {
     this.getCatigoreis();
@@ -50,7 +51,7 @@ export class HomePageComponent implements OnInit {
         this.Categoies=data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
   }
 
@@ -61,7 +62,7 @@ export class HomePageComponent implements OnInit {
         this.subCategoies=data;
       },Wrong=>{
         this.Error = Wrong
-      }      
+      }
     )
   }
 
@@ -90,6 +91,13 @@ export class HomePageComponent implements OnInit {
         }
       }
   })
-}
+  }
 
+  whichCategory(catId: number){
+    this.router.navigate(["Product/AllProduct/",catId])
+  }
+
+  change():void{
+    this.router.navigateByUrl('HomePage')
+  }
 }

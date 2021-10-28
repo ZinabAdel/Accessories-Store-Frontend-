@@ -3,20 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './product/product.component';
-import { ChooseCategoryComponent } from 'src/app/Component/choose-category/choose-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: 'ProductDetails/:id', component: ProductDetailsComponent},
   {path: 'AllProduct/:id', component: ProductComponent},
-  {path: 'ChooseCategory', component: ChooseCategoryComponent},
 ];
 @NgModule({
   declarations: [
     ProductDetailsComponent,
     ProductComponent,
-    ChooseCategoryComponent
   ],
   imports: [
     CommonModule,

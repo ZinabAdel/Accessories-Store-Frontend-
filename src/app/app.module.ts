@@ -12,6 +12,7 @@ import { LoginComponent } from './User/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
+import { ChooseCategoryComponent } from 'src/app/Component/choose-category/choose-category.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FeedbackComponent } from './Component/feedback/feedback.component';
     LoginComponent,
     PageNotFoundComponent,
     FeedbackComponent,
+    ChooseCategoryComponent
   ],
   imports: [
     BrowserModule,
