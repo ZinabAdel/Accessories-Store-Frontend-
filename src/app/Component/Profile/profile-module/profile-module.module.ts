@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountUserComponent } from 'src/app/Admin/account-user/account-user.component';
 import { ClientOrderComponent } from './client-order/client-order.component';
+import { UploadComponent } from 'src/app/ReusableComponent/upload/upload.component';
 
 
 
@@ -29,7 +30,9 @@ const routes: Routes = [
     MYProfileComponent,
     ChangePasswordComponent,
     AccountUserComponent,
-    ClientOrderComponent
+    ClientOrderComponent,
+    UploadComponent,
+
   ],
   imports: [
     CommonModule,

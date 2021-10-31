@@ -53,3 +53,8 @@ img{
 .myArrow{
     background-color: #106e6e ;
 }
+.images:hover {
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  // transform: scale(1.1);
+  background-image: url('../../../assets/i5.jpg');
+}
