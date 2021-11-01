@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ILogin } from 'src/app/Component/Shared_Interfces/ILogin';
+import { IRegister } from 'src/app/Component/Shared_Interfces/IRegister';
 import { AccountService } from 'src/app/Services/account.service';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-myprofile',
@@ -10,15 +12,18 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
   styleUrls: ['./myprofile.component.scss']
 })
 export class MYProfileComponent implements OnInit {
-  userInfo: ILogin;
+  userInfo:IRegister;
   stdID: string = this.authServices.getUserId();
   hide=true;
   text : string ="تغيير البيانات";
   icon: string = "fa fa-arrow-down";
+  public response: {dbPath: ''};
+
   constructor(private authServices: AuthenticationService , private acountServices: AccountService , private router: Router) { }
 
   ngOnInit(): void {
   this.getClientInformation();
+  this.userInfo ={id:'', userName: '' ,passwordHash:'',email:'' , roleName:'' , image:''}
 
   }
   openedit(): any{
@@ -60,6 +65,32 @@ export class MYProfileComponent implements OnInit {
 
     }
   change(): void {
-this.router.navigateByUrl('MyProfile/UpdatePassword');
+    this.router.navigateByUrl('MyProfile/UpdatePassword');
   }
+
+   // upload image
+   public uploadFinished = (event:any) => {
+    this.response = event;
+    this.acountServices.getClientInformation(this.authServices.getUserId()).subscribe(
+     data=>{
+       data.image=this.response.dbPath
+       console.log("Donet",data , data.image)
+       this.acountServices.UpdateClientInfo(data).subscribe(
+         sucess=>{
+           console.log("Done1"  ,sucess)
+         }
+       )
+     }
+   )
+    console.log(this.response)
+  }
+
+  public createImgPath = (serverPath: string) => {
+    // console.log("ttttttt",`${environment.API_URL}/${serverPath}`);
+    let x = `${environment.API_URL}/${serverPath}`;
+    console.log("ttttttt22" ,x ,serverPath);
+
+    return x;
+  }
+
 }

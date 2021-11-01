@@ -4,4 +4,5 @@ export interface ILogin{
   userName: string;
   passwordHash: string;
   email: string;
+
 };

@@ -30,7 +30,7 @@ export class FeedbackComponent implements OnInit {
     })
     this.getClientInformation();
   }
-  
+
   onSubmit(){
     console.log("hello",this.feedbackForm.value)
     const user = this.feedbackForm.value;

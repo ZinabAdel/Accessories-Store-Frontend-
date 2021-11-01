@@ -40,9 +40,16 @@ img{
 .myArrow{
     background-color: #106e6e ;
 }
+<<<<<<< HEAD
 .myCat{
   border-radius: 20%;
   background-color: rgb(240, 238, 238);
   border: 2px solid #106e6e;
   cursor: pointer;
+=======
+.images:hover {
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  // transform: scale(1.1);
+  background-image: url('../../../assets/i5.jpg');
+>>>>>>> 5cf4e00a5a0bc3666dc01ee031ee17e86661c4f3
 }

@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 col-md-3 p-4" style="background-color: rgb(204, 203, 203); min-height: 100vh;">
-      <img class="img-fluid w-100 h-auto mt-5 rounded-circle" src="assets/pexels-artem.jpg">
-
-
+      <img class="img-fluid w-100 h-auto mt-5 rounded-circle" [src]="createImgPath(userInfo.image)" >
+      {{userInfo.image}}
+      <app-upload  (onUploadFinished)="uploadFinished($event)"></app-upload>
       <div class="container-fluid d-inline-flex ">
         <h2 class="mb-4 mx-auto">الاسم: </h2>
         <h1 class="text-dark mx-auto fs-2">{{userInfo.userName}}</h1>

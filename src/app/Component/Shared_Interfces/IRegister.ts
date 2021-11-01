@@ -4,6 +4,6 @@ export interface IRegister{
     userName: string;
     passwordHash: string;
     email: string;
-    roleName:string
+    roleName:string;
+    image:string;
   };
-  
