@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
     )
   }
 
-  filterProduct(id:number){
+  filterProduct(id:number, name:string){
     this.spasificProduct = []
     this.prodServices.getProductsBySubCategory(id).subscribe(sucess => {
       for(let prod of sucess)
@@ -63,7 +63,7 @@ export class ProductComponent implements OnInit {
         }
       }
   })
-    if(id == 2)
+    if(name == "خواتم" ||name == "الخواتم"  )
     {
       this.showSizeRing = true
     }

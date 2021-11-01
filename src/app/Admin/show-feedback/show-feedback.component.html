@@ -1,12 +1,14 @@
-<div class="container-fluid p-5 myPage">
+<div class="container-fluid p-5 myPage" style="background-color: rgb(241, 240, 240);">
     <p class="h3 mb-4 text-center allTextShadow">أراء العملاء</p>
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <div class="card shadow-lg mx-auto" style="background-color: rgb(241, 240, 240);">
-            <div *ngFor="let feed of feedback; let i = index" >
-                <div class="card-body">
-                    <h5 class="card-title">{{i+1}}- {{feed.fullName}}.</h5>
-                    <p class="card-text">{{feed.clientReview}}.</p>
+            <div *ngFor="let feed of feedback; let i = index"  class="mb-3 card shadow-lg mx-auto">
+            <div>
+              <div class="card-header">
+                 <h5 class="card-title">{{i+1}}- {{feed.fullName}}.</h5>
+              </div>
+              <div class="card-body">
+                  <p class="card-text">{{feed.clientReview}}.</p>
                 </div>
             </div>
         </div>

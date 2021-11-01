@@ -2,7 +2,7 @@
     <div class="d-flex flex-wrap pb-4 justify-content-center">
         <button (click)="setAllProductCategory()" class="d-lg-block mb-lg-3 me-1 px-5 mt-3 btn mybutton" style="height: 58px;">الكل</button>
         <div *ngFor="let subCat of subCategoies" class="my-3 ">
-          <button (click)="filterProduct(subCat.id)" class="link-dark d-lg-block mb-lg-3 me-1 px-5 py-3 btn mybutton">{{subCat.subCategoryName}}</button>
+          <button (click)="filterProduct(subCat.id, subCat.subCategoryName)" class="link-dark d-lg-block mb-lg-3 me-1 px-5 py-3 btn mybutton">{{subCat.subCategoryName}}</button>
         </div>
     </div>
 

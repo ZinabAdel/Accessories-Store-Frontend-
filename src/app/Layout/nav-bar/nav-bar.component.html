@@ -34,29 +34,29 @@
     </ng-template>
 
     <ng-template #Admin>
-      <li class="nav-item dropdown text-decoration-none text-center">
-        <h6 class="nav-link dropdown-toggle text-light p-0 mb-4 me-4" href="#" id="navbarDropdown" role="button"
+      <li class="nav-item dropdown text-decoration-none text-center"  style="list-style: none;" >
+        <h6 class="nav-link dropdown-toggle text-light mt-2 me-4" id="navbarDropdown" role="button"
           data-bs-toggle="dropdown" aria-expanded="false">
           الأضافات
         </h6>
         <ul class="dropdown-menu text-center shadow-lg" aria-labelledby="navbarDropdown">
           <li>
-            <a class="dropdown-item" href="#"><a class="text-decoration-none text-dark" routerLink="/Admin/AddProduct">
+            <a class="dropdown-item" routerLink="/Admin/AddProduct" ><a class="text-decoration-none text-dark">
                 إضافة منتجات</a></a>
           </li>
           <li>
-            <a class="dropdown-item" href="#"><a class="text-decoration-none text-dark"
+            <a class="text-decoration-none dropdown-item text-dark"
                 routerLink="/Admin/AddCategory">إضافة أصناف
-              </a></a>
+              </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#"><a class="text-decoration-none text-dark"
-                routerLink="/Admin/AddSubCategory">إضافة أنواع</a></a>
+            <a class="dropdown-item text-decoration-none text-dark"
+                routerLink="/Admin/AddSubCategory">إضافة أنواع</a>
           </li>
         </ul>
       </li>
-      <a class="nav-link text-center" href="#"><a class="text-decoration-none text-light" routerLink="Admin/Orders">الطلبات</a></a>
-      <a class="nav-link text-center" href="#"><a class="text-decoration-none text-light" routerLink="Admin/ShowFeedback">الأراء</a></a>
+      <a class="nav-link text-center" routerLink="Admin/Orders"><a class="text-decoration-none text-light" >الطلبات</a></a>
+      <a class="nav-link text-center" routerLink="Admin/ShowFeedback"><a class="text-decoration-none text-light">الأراء</a></a>
     </ng-template>
 
     <ng-template #NotLogin>

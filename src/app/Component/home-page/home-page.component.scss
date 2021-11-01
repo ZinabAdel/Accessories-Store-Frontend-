@@ -1,7 +1,5 @@
 .myCarousel{
-    // background-image: url(../../../assets/background1.jpg);
     background-color: rgb(240, 238, 238);
-    background-size: cover;
 }
 .myCard{
     width: 90%;
@@ -10,7 +8,6 @@
     text-shadow: 2px 2px 5px #106e6e ;
 }
 .myCardProduct{
-    // box-shadow: 1px 1px 3px 3px #d63384;
     box-shadow: 0 1px 2px 0 #6bcccc , 0 1px 5px 0 #4dacac ;
 }
 .myDataOfAbout{
@@ -36,28 +33,16 @@ img{
     max-width: 100%;
     height: auto;
 }
-.myLink{
-    border-color: #ebb0cd;
-    color: ebb0cd;
-}
-.myLink:hover {
-    background: #ebb0cd;
-    color: white;
-}
 .myDetails{
     background: #106e6e ;
-}
-.myBtnCat{
-    background-color: #cd9575;
+    color: white;
 }
 .myArrow{
     background-color: #106e6e ;
 }
 .myCat{
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  background-image: url(../../../assets/bgChoose.jpg);
-  background-size: cover;
+  border-radius: 20%;
+  background-color: rgb(240, 238, 238);
+  border: 2px solid #106e6e;
   cursor: pointer;
 }

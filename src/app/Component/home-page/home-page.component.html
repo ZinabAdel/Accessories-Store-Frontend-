@@ -1,26 +1,24 @@
-<div class="container-fluid pb-5">
-  <div class="d-md-flex mx-auto pt-3 allTextShadow">
-      <p class="h2 pt-5 text-center mx-auto" style="padding-left: 12%;">أهلا بك فى موقعنا</p>
-  </div>
-
-  <div class="p-5 clearfix mb-md-5 d-md-flex">
-      <ng-container *ngFor="let cat of Categoies">
-          <div class="col-md-4 mx-auto mb-3" (click)="whichCategory(cat.id)">
-            <p class="myCat text-center shadow-lg d-flex align-items-center justify-content-center h1">{{cat.categoryName}}</p>
-          </div>
-      </ng-container>
-      <div>
-      </div>
-  </div>
-  <div>
+<div class="container-fluid d-md-flex" >
+ <div class="mx-auto mt-2">
+  <div class="allTextShadow ">
+    <p class="h2 py-3 text-center">اختار الفئة التى تريدها:</p>
+</div>
+<div class="clearfix mb-md-5 d-md-flex">
+    <ng-container *ngFor="let cat of Categoies">
+        <div class="me-4" (click)="whichCategory(cat.id)">
+          <p class="myCat text-center shadow-lg d-flex align-items-center justify-content-center h3 p-3">{{cat.categoryName}}</p>
+        </div>
+    </ng-container>
+    <div>
 </div>
 </div>
-
+ </div>
+</div>
 
 <!-- ---------------------------------------------------------------------------------------- -->
 
-<div id="carouselExampleControls" class="carousel slide py-5 myCarousel" data-bs-ride="carousel" >
-    <div class="carousel-inner mx-auto w-50">
+<div id="carouselExampleControls" class="carousel slide py-4 myCarousel" data-bs-ride="carousel" >
+    <div class="carousel-inner mx-auto" style="width: 30%;">
       <!-- <div class="carousel-item active d-flex align-items-center">
         <div  class="mx-auto h2 text-center">
           <p>100 ج</p>
@@ -71,7 +69,7 @@
     <div style="text-align: center;" class="mb-3">
         <button type="button" class="btn" style="background-color: #9c627d; color: white;">جميع الانواع</button>
         <div *ngFor="let cat of Categoies" class="" style="display: inline-flex;">
-            <button type="button" class="btn me-4 myBtnCat">{{cat.categoryName}}</button>
+            <button type="button" class="btn me-4 ">{{cat.categoryName}}</button>
         </div>
     </div>
 </div> -->
@@ -95,7 +93,7 @@
           <div *ngFor="let product of AllProduct" >
               <div class="card me-4 mb-3 myCardProduct" style="width: 14rem; min-height: 330px; max-height: auto;">
               <div class="align-center" style="height: 65%;">
-                <img [src]="createImgPath(product.productImage)" class="card-img-top p-3 w-100 h-100" alt="error">
+                <img [src]="createImgPath(product.productImage)" onerror="if (this.src != '../../assets/error.png') this.src = '../../assets/error.png';" class="card-img-top p-3 w-100 h-100" alt="error">
               </div>
               <div class="card-body text-center" style="height: 40%;">
                   <h5 class="card-title">{{product.productName}}</h5>
