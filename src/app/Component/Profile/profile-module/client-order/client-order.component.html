@@ -5,7 +5,7 @@
         <div class="card-body shadow-lg" >
          <div class="clearfix">
           <div class="">
-            <p class="card-text float-start w-50"><img class="img-fluid" [src]="createImgPath(order.productImage)"></p>
+            <p class="card-text float-start w-50"><img class="img-fluid"  onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';"  [src]="createImgPath(order.productImage)"></p>
           </div>
             <div class=" float-lg-end text-center pe-lg-5 ">
               <p class="card-text"><span class="h4">المنتج: </span>{{order.productName}}</p>
@@ -21,27 +21,4 @@
       </div>
     </div>
   </div>
-
-
-
-  <div class="row ">
-    <div class="col-lg-8  mx-auto">
-        <div class="card-body shadow-lg" >
-         <div class="clearfix">
-          <div class="">
-            <p class="card-text float-start w-50"><img class="img-fluid" src="../../../../../assets/m2.jpeg"></p>
-          </div>
-            <div class=" float-lg-end text-center pe-lg-5 ">
-              <p class="card-text"><span class="h4">المنتج: </span>خواتم 15</p>
-              <p class="card-text"><span class="h4">السعر: </span>200ج</p>
-              <p class="card-text"><span class="h4">الرقم: </span>010262686919</p>
-              <p class="card-text"> يسنتىلارني لانتشسلان </p>
-              <a href="#" class="btn text-light allbutton" >إلغاء الأوردر</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer text-muted allbutton " >
-        </div>
-      </div>
-    </div>
   </div>

@@ -92,19 +92,14 @@
       <div class="d-flex mx-auto flex-wrap justify-content-center w-100"   style="max-width: 100%; max-height: 100%" data-mdb-ripple-color="light">
           <div *ngFor="let product of AllProduct" >
               <div class="card me-4 mb-3 myCardProduct" style="width: 14rem; min-height: 330px; max-height: auto;">
-<<<<<<< HEAD
-              <div class="align-center" style="height: 65%;">
-                <img [src]="createImgPath(product.productImage)" onerror="if (this.src != '../../assets/error.png') this.src = '../../assets/error.png';" class="card-img-top p-3 w-100 h-100" alt="error">
-=======
               <div class="align-center  text-center" style="max-height: 100%;">
-                <img [src]="createImgPath(product.productImage)" [ngStyle]="{'background-image':createImgPath(product.productImage)}" class="card-img-top images p-3 mx-auto w-100 img-fluid " style=" height: auto; max-height: 200px;" alt="error">
->>>>>>> 5cf4e00a5a0bc3666dc01ee031ee17e86661c4f3
+                <img [src]="createImgPath(product.productImage)" onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';" [ngStyle]="{'background-image':createImgPath(product.productImage)}" class="card-img-top images p-2 mx-auto w-100 img-fluid " style=" height: auto; max-height: 200px;" alt="error">
               </div>
 
               <div class="card-body text-center" style="height: 40%;">
                   <h5 class="card-title">{{product.productName}}</h5>
                   <p class="card-text">{{product.price}}ج</p>
-                  <a href="#" class="btn myDetails hover" routerLink="{{'/Product/ProductDetails/'+ product.id}}">شاهد التفاصيل</a>
+                  <a href="#" class="btn allbutton hover" routerLink="{{'/Product/ProductDetails/'+ product.id}}">التفاصيل</a>
                   <!-- <a href="#" class="btn myDetails me-1" routerLink="#">اطلب الان </a> -->
               </div>
               </div>

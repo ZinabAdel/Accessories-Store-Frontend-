@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="col-md-4 float-start">
-        <img [src]="createImgPath(productid.productImage)" class="img-fluid rounded-start bord " style="height:250px;"
+        <img [src]="createImgPath(productid.productImage)"  onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';"  class="img-fluid rounded-start bord " style="height:250px;"
           alt="...">
 
         </div>

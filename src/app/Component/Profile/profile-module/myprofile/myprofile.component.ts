@@ -70,14 +70,16 @@ export class MYProfileComponent implements OnInit {
 
    // upload image
    public uploadFinished = (event:any) => {
+    console.log("ttttttttttttttttttt",event)
     this.response = event;
     this.acountServices.getClientInformation(this.authServices.getUserId()).subscribe(
      data=>{
        data.image=this.response.dbPath
-       console.log("Donet",data , data.image)
+       console.log("Donet",data ,"h", data.image)
        this.acountServices.UpdateClientInfo(data).subscribe(
          sucess=>{
            console.log("Done1"  ,sucess)
+           window.location.reload();
          }
        )
      }
@@ -90,6 +92,12 @@ export class MYProfileComponent implements OnInit {
     let x = `${environment.API_URL}/${serverPath}`;
     console.log("ttttttt22" ,x ,serverPath);
 
+    return x;
+  }
+
+  public createImgPathProfile = (serverPath: string) => {
+    let x = `${environment.API_URL_Register}/${serverPath}`;
+    console.log("ttttttt22" ,x ,serverPath);
     return x;
   }
 

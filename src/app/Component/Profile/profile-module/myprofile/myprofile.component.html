@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6 col-md-3 p-4" style="background-color: rgb(204, 203, 203); min-height: 100vh;">
-      <img class="img-fluid w-100 h-auto mt-5 rounded-circle" [src]="createImgPath(userInfo.image)" >
-      {{userInfo.image}}
+    <div class="col-sm-6 col-md-3 p-4 text-center" style="background-color: rgb(204, 203, 203); min-height: 100vh; max-width: auto;">
+      <img class="img-fluid w-75 mt-5 rounded-circle mb-2" style="height: 30%;"  onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';" [src]="createImgPathProfile(userInfo.image)" >
+      <!-- {{userInfo.image}} -->
       <app-upload  (onUploadFinished)="uploadFinished($event)"></app-upload>
       <div class="container-fluid d-inline-flex ">
         <h2 class="mb-4 mx-auto">الاسم: </h2>

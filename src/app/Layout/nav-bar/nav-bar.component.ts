@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ILogin } from 'src/app/Component/Shared_Interfces/ILogin';
+import { IRegister } from 'src/app/Component/Shared_Interfces/IRegister';
 import { AccountService } from 'src/app/Services/account.service';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,7 +13,7 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 export class NavBarComponent implements OnInit {
 
   constructor(private authServices: AuthenticationService , private acountServices: AccountService) { }
-  userInfo: ILogin;
+  userInfo: IRegister;
   stdID: string = this.authServices.getUserId();
   ngOnInit(): void {
     this.isLoggedIn();
@@ -37,6 +39,12 @@ export class NavBarComponent implements OnInit {
             console.log('usetd', this.userInfo.userName, this.userInfo.id );
         }
       );
+  }
+
+  public createImgPathProfile = (serverPath: string) => {
+    let x = `${environment.API_URL_Register}/${serverPath}`;
+    console.log("ttttttt22" ,x ,serverPath);
+    return x;
   }
 
 }

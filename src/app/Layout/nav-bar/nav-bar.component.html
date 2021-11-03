@@ -6,11 +6,11 @@
           class="rounded-pill img-fluid" />
       </div>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <button class="navbar-toggler justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div>
+    <div routerLink="HomePage" style="cursor: pointer;">
       <p class="text-light fs-3 me-4 mt-2 text-center" style="font-family: Arial, Helvetica, sans-serif">
         <em>قلاوون</em>
       </p>
@@ -22,9 +22,10 @@
     </div>
   </div>
 
-  <div class="collapse navbar-collapse mb-1" id="navbarSupportedContent">
-    <p class="float-left" *ngIf="isLoggedIn(); then Login; else NotLogin"></p>
+  <div class="collapse navbar-collapse mb-1 clearfix " id="navbarSupportedContent">
+    <div class="clearfix" *ngIf="isLoggedIn(); then Login; else NotLogin"></div>
   </div>
+
   <div class="navbar-nav me-auto">
     <ng-template #Client>
       <a class="nav-link active text-center" aria-current="page" href="#" routerLink="ChooseCategory"><a
@@ -80,12 +81,12 @@
         <p class="fs-6 text-center text-light" style="height: 15px;">حسابى</p>
         <i class="fas fa-user-alt fs-5 text-light rounded-circle me-1 px-1 py-1 h-100"
           style=" background-color: rgb(170, 168, 168)"></i>
-      </div>
+        </div>
     </ng-template>
 
     <ng-template #Login>
-      <div class="d-flex rounded-pill justify-content-center ps-1 pt-1"
-      style="background-color: #052b2b; ">
+      <div class="d-flex float-none  rounded-pill justify-content-start align-item-start ps-1 pt-1"
+      style="background-color: #052b2b; width: 10%;">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
           data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: -26px; margin-left: -10px; height: 15px;">
@@ -104,8 +105,9 @@
         </ul>
       </li>
       <p class="fs-6 text-center text-light" style="height: 15px;">{{ userInfo.userName }}</p>
-      <i class="fas fa-user-alt fs-5 text-light rounded-circle me-1 px-1 py-1 h-100"
-        style=" background-color: rgb(170, 168, 168)"></i>
+        <div class="me-1  ">
+          <img class="img-fluid w-100 h-auto rounded-circle" onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';" [src]="createImgPathProfile(userInfo.image)" >
+        </div>
       </div>
     </ng-template>
   </div>
