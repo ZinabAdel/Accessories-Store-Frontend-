@@ -1,1 +1,87 @@
-<p>client-order works!</p>
+<div class="container-fluid p-4 ">
+  <h2 class="text-center mt-3">إدخل البيانات للطلب</h2>
+  <form [formGroup]="OrderNowForm" >
+    <div class="row d-flex align-items-center">
+      <div class="col-md-5 me-5">
+        <div>
+          <input type="hidden" class="form-control shadow-lg"  formControlName="id" [value]="productid.id"  id="form2Example17">
+        </div>
+
+        <div>
+          <img type="text" class="shadow-lg" formControlName="productImage"  onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';"  [src]="createImgPath(productid.productImage)" id="form2Example17" required>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="my-4 ">
+          <label class="form-label fw-bold"> رقم التليفون</label>
+          <input type="text" class="form-control shadow"  formControlName="phoneNumber" [class.is-invalid]="phoneNumber?.invalid && phoneNumber?.touched" [class.is-valid]="phoneNumber?.valid" id="form2Example17" required>
+          <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched">
+            <small class="text-danger float-end" *ngIf="phoneNumber?.errors?.required"> رقم التليفون  مطلوب</small>
+            <small class="text-danger float-end" *ngIf="phoneNumber?.errors?.maxlength">  يرجى ادخال 11 رقم فقط</small>
+            <small class="text-danger float-end" *ngIf="phoneNumber?.errors?.minlength">يجب ادخال 11 رقم</small>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold"> رقم ابطاقة</label>
+          <input type="text" class="form-control shadow" #nid  formControlName="NID" [class.is-invalid]="NID?.invalid && NID?.touched" [class.is-valid]="NID?.valid" value="" id="form2Example17" required>
+
+          <div *ngIf="NID?.invalid && NID?.touched">
+            <small class="text-danger float-end" *ngIf="NID?.errors?.required"> رقم البطاقة  مطلوب</small>
+            <small class="text-danger float-end" *ngIf="NID?.errors?.maxlength">     يرجى ادخال 14 رقم فقط</small>
+            <small class="text-danger float-end" *ngIf="NID?.errors?.minlength">يجب ادخال 14 رقم</small>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold"> اى اضافات</label>
+          <input type="text" class="form-control shadow" #msg formControlName="mSG" [class.is-invalid]="mSG?.invalid && mSG?.touched" [class.is-valid]="mSG?.valid" value="" id="form2Example17" required>
+          <div *ngIf="mSG?.invalid && mSG?.touched">
+            <small class="text-danger float-end" style="line-height: 28px;" *ngIf="mSG?.errors?.required"> يرجى أدخال تعليق إن وجد!  <br> إنإن لم يوجد اكتب لا </small>
+          </div>
+        </div><br><br>
+
+        <button  class="btn btn-outline-dark allbutton" [disabled]="OrderNowForm.invalid" type="submit"  data-bs-toggle="modal" data-bs-target="#exampleModalCheck"> اطلب الان </button>
+      </div>
+    </div>
+    <!-- <div *ngIf="idClicked"> -->
+        <!-- <div *ngIf="isAddOder then success else wrong"></div> -->
+            <!-- <ng-template #success>
+                <div class="alert alert-success" role="alert">
+                    تم الأضافه بنجاح
+                </div>
+            </ng-template>
+            <ng-template #wrong>
+                <div class="alert alert-warning" role="alert">
+                حدث خطأ بالأضافه
+                </div>
+            </ng-template> -->
+    <!-- </div> -->
+  </form>
+</div>
+
+
+
+<!-- insure -->
+  <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  <div class="modal-header">
+    <div class="float-start"><h3 class="text-success"> تأكيدالطلب</h3></div>
+    <!-- <div><i class="fas fa-exclamation-circle text-warning fs-4"></i></div> -->
+    <div class="float-end"><button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button></div>
+  </div>
+  <div class="modal-body text-center">
+    <span class="h5"> <span class="h2">اسم المنتج :</span> {{productid.productName}} </span><br>
+    <span class="h5"> <span class="h2"> رقم البطاقة :</span> {{nid.value}}</span><br>
+    <span class="h5"> <span class="h2">السعر : </span>{{productid.price}} ج</span><br>
+    <span class="h5"> <span class="h2">التعليق : </span>{{msg.value}} </span><br>
+  </div>
+  <div class="modal-footer">
+    <button  class="btn allbutton"  type="button" (click)="addNewProduct()">اطلب</button>
+    <!-- <button type="button" class="btn btn-light allbutton" (click)="modal.close('Close click')">Close</button> -->
+  </div>
+  </div>
+  </div>
+</div>

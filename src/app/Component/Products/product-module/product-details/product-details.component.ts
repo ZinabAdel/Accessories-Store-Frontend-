@@ -12,7 +12,6 @@ import { environment } from 'src/environments/environment';
 import {Location} from '@angular/common';
 import { CategoryService } from 'src/app/Services/category.service';
 import { SubCategoryService } from 'src/app/Services/sub-category.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-details',
@@ -34,7 +33,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private service: ProductService , private router: Router , private orderServices: OrderService ,
     private active: ActivatedRoute , private  fb: FormBuilder , private acountServices: AccountService ,
      private authServices: AuthenticationService , private location: Location, private subCategoryService:SubCategoryService,
-     private modalService:NgbModal) { }
+     ) { }
 
   ngOnInit(): void {
     this.OrderNowForm=this.fb.group({
@@ -43,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
       mSG:['',[Validators.required ]],
       // clientID:['',[Validators.required ]],
     })
-      this.newOrder= {mSG:'', clientID:'', phoneNumber:'', productImage:'', productName:'',  price:0 , productId:1 ,finish:0, id:0}
+      this.newOrder= {mSG:'',NID:0, clientID:'', phoneNumber:'', productImage:'', productName:'',  price:0 , productId:1 ,finish:0, id:0}
       this.active.paramMap.subscribe((p: ParamMap) => this.URLID = p.get('id'));
       this.getProductById(this.URLID);
       console.log('id', this.URLID);
@@ -109,9 +108,6 @@ export class ProductDetailsComponent implements OnInit {
      console.log('doneAddCat',this.OrderNowForm.value.productName);
   });
   }
-  makeCheckToOrder(model:any, colseModel:any){
-    this.modalService.open(model);
-  }
   onSubmit(){
 
     console.log("hello",this.OrderNowForm.value);
@@ -121,27 +117,17 @@ export class ProductDetailsComponent implements OnInit {
  this.location.back();
  }
 
- isLoggedIn(model1:any, model2:any): any{
+ isLoggedIn(): any{
   this.islogin = this.authServices.isLoggedIn();
-  if(!this.islogin)
+  if(this.islogin)
   {
-    // this.modalService.open(model1);
-    // window.location.href = "/Login"
-    this.router.navigateByUrl("/Login")
+    this.router.navigateByUrl(`/Product/clientOrder/${this.URLID}`)
   }
   else
   {
-    // this.modalService.open(model2);
-    // this.router.navigateByUrl("/Product/clientOrder/",this.URLID)
-    this.router.navigateByUrl(`/Product/clientOrder/${this.URLID}`)
+    this.router.navigateByUrl("/Login")
+    console.log("NOOOT", this.islogin)
   }
-  console.log("NOOOT", this.islogin)
   return this.authServices.isLoggedIn();
- }
-
- loginNow(){
-   console.log("JJJ")
-   this.router.navigateByUrl("/Login")
-  // window.location.href = "/Login"
  }
 }

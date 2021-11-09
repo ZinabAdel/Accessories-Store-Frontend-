@@ -7,5 +7,6 @@ export interface IOrder {
    phoneNumber:string;
    finish:number;
    mSG: string;
+   NID:number;
    clientID?:string;
 }

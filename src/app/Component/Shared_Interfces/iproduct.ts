@@ -5,5 +5,4 @@ export interface IProduct {
    categoryID: number;
    subCategoryID: number;
    price: number;
-
 }
