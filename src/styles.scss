@@ -21,3 +21,6 @@ button{
 .allTextShadow{
   text-shadow: 2px 2px 5px #a4a7a7;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

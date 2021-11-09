@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { ChooseCategoryComponent } from 'src/app/Component/choose-category/choose-category.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ChooseCategoryComponent } from 'src/app/Component/choose-category/choos
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

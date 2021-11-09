@@ -16,6 +16,10 @@ export class SubCategoryService {
     return this.http.get<ISubCategory[]>(`${environment.API_URL}/SubCategory`).pipe();
   }
 
+  getSubCategoryById(subCatId: number): Observable<ISubCategory>{
+    return this.http.get<ISubCategory>(`${environment.API_URL}/SubCategory/${subCatId}`).pipe();
+  }
+
   addNewSubCategory(subCategory: ISubCategory): Observable<ISubCategory>{
     return this.http.post<ISubCategory>(`${environment.API_URL}/SubCategory`,subCategory).pipe();
   }

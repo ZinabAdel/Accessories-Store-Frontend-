@@ -17,6 +17,10 @@ export class CategoryService {
     return this.http.get<ICategory[]>(`${environment.API_URL}/Category`).pipe();
   }
 
+  getCategoryById(catId: number): Observable<ICategory>{
+    return this.http.get<ICategory>(`${environment.API_URL}/Category/${catId}`).pipe();
+  }
+
   addNewCategory(category: ICategory): Observable<ICategory>{
     return this.http.post<ICategory>(`${environment.API_URL}/Category`,category).pipe();
   }

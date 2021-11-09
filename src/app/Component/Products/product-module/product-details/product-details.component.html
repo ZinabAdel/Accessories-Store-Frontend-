@@ -2,20 +2,13 @@
   <div class="card shadow-lg mb-5 mt-3 mt-5 mx-auto" style="max-width: 640px; height: 50%;">
     <div class="row g-0 d-flex align-items-center">
       <div class="col-md-8 p-0 m-0">
-        <div class="card-body m-0 p-0 me-4 ">
-          <h5 class="card-title"> {{productid.productName}}</h5>
-          <p class="card-text">{{productid.price}} ج</p>
-
-          <div class="collapse navbar-collapse mb-1" id="navbarSupportedContent">
-            <p class="float-left" *ngIf="isLoggedIn(); then Login; else NotLogin"></p>
-          </div>
-
-          <ng-template #NotLogin>
-          </ng-template>
-
-          <ng-template #Login>
-            <button class="btn btn-outline-dark float-start mx-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fas fa-shopping-cart"></i></button>
-          </ng-template>
+        <div class="card-body m-0 p-0 me-4 text-center">
+        <div class="d-flex justify-content-center">
+          <h4 style="color: #034444;"> المنتج: </h4> <h5 class="card-title">&nbsp; {{productid.productName}} </h5>
+        </div>
+        <div class="d-flex justify-content-center">
+          <h4 style="color: #034444;">  السعر: </h4>  <h5 class="card-text">&nbsp; {{productid.price}} ج</h5>
+        </div>
 
           <span *ngIf="isRing" class="mt-5">
               <span class="d-flex justify-content-center mb-2">
@@ -24,8 +17,12 @@
               </span>
             <span >لكيفيه معرفة حجم خاتمك <a href="RingSize" style="color: #393f81;">إضغط هنا</a></span>
           </span>
-          <button class="btn btn-outline-dark float-start mx-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Back()" >رجوع</button>
-        </div>
+
+          <div>
+            <div class="" style="position: absolute; bottom: 5px; right: 5px;"> <button class="btn btn-outline-dark mx-3" (click)="isLoggedIn(exampleModal1,exampleModal2)"><i class="fas fa-shopping-cart"></i></button></div>
+            <div class="bd-highlight"> <button class="btn btn-outline-dark" style="position: absolute; bottom: 5px; left: 5px;" (click)="Back()" >رجوع</button></div>
+          </div>
+          </div>
       </div>
         <div class="col-md-4 float-start">
           <img [src]="createImgPath(productid.productImage)"  onerror="if (this.src != '../../assets/error1.png') this.src = '../../assets/error1.png';"  class="img-fluid rounded-start bord " style="height:250px;"
@@ -37,61 +34,83 @@
 </div>
 
 
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-
-            <h5 class="modal-title" id="exampleModalLabel">طلب الصنف</h5>
-          <button type="button"  class="btn fs-3"  data-bs-dismiss="modal"><li class="fa fa-times text-dark" ></li></button>
-
-        </div>
-        <div class="modal-body">
-            <form [formGroup]="OrderNowForm" (ngSubmit)="onSubmit()" >
-              <div class="mb-4">
-                <!-- <label class="form-label fw-bold mt-5"> الصنف</label> -->
-                <!-- <input type="hidden" class="form-control" formControlName="productId"  id="form2Example17"  class="form-control form-control-lg" required> -->
-            </div>
-                <div class="mb-4">
-                    <!-- <label class="form-label fw-bold mt-5"> الصنف</label> -->
-                    <input type="hidden" class="form-control"  formControlName="id" [value]="productid.id"  id="form2Example17"  class="form-control form-control-lg" required>
-                </div>
-                <div class="mb-4 text-center">
-                  <img type="text"   formControlName="productImage" [src]="createImgPath(productid.productImage)" id="form2Example17"   required>
-              </div>
-
-              <div class="mb-4">
-                <label class="form-label fw-bold mt-5"> رقم التليفون</label>
-                <input type="text" class="form-control"  formControlName="phoneNumber"  id="form2Example17"  class="form-control form-control-lg" required>
-            </div>
-
-
-
-          <div class="mb-4">
-            <label class="form-label fw-bold mt-5"> اى اضافات</label>
-            <input type="text" class="form-control"  formControlName="mSG" value="" id="form2Example17"  class="form-control form-control-lg" required>
-        </div>
-
-                <div *ngIf="idClicked">
-                    <div *ngIf="isAddOder then success else wrong"></div>
-                        <ng-template #success>
-                            <div class="alert alert-success" role="alert">
-                                تم الأضافه بنجاح
-                            </div>
-                        </ng-template>
-                        <ng-template #wrong>
-                            <div class="alert alert-warning" role="alert">
-                            حدث خطأ بالأضافه
-                            </div>
-                        </ng-template>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button  class="btn text-light" style="background-color:#462c38 ;" type="submit" (click)="addNewProduct()"> اطلب الان </button>
-        </div>
-        </div>
+<!-- Modal -->
+<!-- login -->
+   <ng-template #exampleModal1 let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">طلب الصنف</h5>
     </div>
-    </div>
+    <div class="modal-body">
+      <form [formGroup]="OrderNowForm" (ngSubmit)="onSubmit()" >
+        <div class="mb-4">
+            <input type="hidden" class="form-control"  formControlName="id" [value]="productid.id"  id="form2Example17"  class="form-control form-control-lg" required>
+        </div>
+        <div class="mb-4 text-center">
+          <img type="text"   formControlName="productImage" [src]="createImgPath(productid.productImage)" id="form2Example17"   required>
+        </div>
 
+        <div class="mb-4">
+          <label class="form-label fw-bold mt-5"> رقم التليفون</label>
+          <input type="text" class="form-control"  formControlName="phoneNumber"  id="form2Example17"  class="form-control form-control-lg" required>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold mt-5"> اى اضافات</label>
+          <input type="text" class="form-control"  formControlName="mSG" value="" id="form2Example17"  class="form-control form-control-lg" required>
+        </div>
+
+        <div *ngIf="idClicked">
+            <div *ngIf="isAddOder then success else wrong"></div>
+                <ng-template #success>
+                    <div class="alert alert-success" role="alert">
+                        تم الأضافه بنجاح
+                    </div>
+                </ng-template>
+                <ng-template #wrong>
+                    <div class="alert alert-warning" role="alert">
+                    حدث خطأ بالأضافه
+                    </div>
+                </ng-template>
+        </div>
+    </form>
+
+    </div>
+    <div class="modal-footer">
+      <button  class="btn allbutton" type="submit" (click)="makeCheckToOrder(exampleModalCheck,exampleModal2)"> اطلب الان </button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+   </ng-template>
+
+<!-- notLogin -->
+    <ng-template #exampleModal2 let-modal>
+      <div class="modal-header">
+        <div class="float-start"><h3 class="text-warning">تنبيه!</h3></div>
+        <div><i class="fas fa-exclamation-circle text-warning fs-4"></i></div>
+        <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> -->
+          <!-- <span aria-hidden="true">&times;</span> -->
+        <!-- </button> -->
+      </div>
+      <div class="modal-body">
+        <p>يرجى تسجيل الدخول للطلب</p>
+      </div>
+      <div class="modal-footer">
+        <button  class="btn allbutton" type="button" (click)="loginNow()">سجل الان</button>
+        <!-- <button type="button" class="btn btn-light allbutton" (click)="modal.close('Close click')">Close</button> -->
+      </div>
+    </ng-template>
+
+<!-- insure -->
+    <ng-template #exampleModalCheck let-modal>
+      <div class="modal-header">
+        <div class="float-start"><h3 class="text-warning">تأكيد</h3></div>
+        <!-- <div><i class="fas fa-exclamation-circle text-warning fs-4"></i></div> -->
+      </div>
+      <div class="modal-body">
+        <p>تأكيد الطلب</p>
+        <p>السعر{{productid.price}}</p>
+      </div>
+      <div class="modal-footer">
+        <button  class="btn allbutton" type="button" (click)="addNewProduct()">تأكيد</button>
+        <button type="button" class="btn btn-light allbutton" (click)="modal.close('Close click')">Close</button>
+      </div>
+    </ng-template>
